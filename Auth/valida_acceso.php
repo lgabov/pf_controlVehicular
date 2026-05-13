@@ -1,11 +1,11 @@
 <?php
-    $Usuario = $_POST["Usuario"];
-    $Pwd = $_POST["Pwd"];
-
-    print($Usuario. " ". $Pwd);
-    include("../Controlador.php");
+session_start();
+include("../Controlador.php");
 
     $Con = Conectar();
+    $Usuario = $_POST["Usuario"];
+    $Pwd = $_POST["Pwd"];
+    
     $sql = "SELECT * FROM Cuentas WHERE Usuario = '$Usuario'";
     $ResultSet = Ejecutar($Con, $sql);
     $NumFilas = mysqli_num_rows($ResultSet);
@@ -13,19 +13,20 @@
     if($NumFilas == 0) { 
         print("El usuario no existe");
         } else {
-            $Fila = mysqli_fetch_row($ResultSet);
-            if($Fila[1] == $Pwd) {
-                print("Contraseña correcta");
-                if($Fila[5] != 0) {
+            $Fila = mysqli_fetch_assoc($ResultSet);
+            if($Fila['Pwd'] == $Pwd) {
+                if($Fila['Intentos'] != 0) {
                     $sql = "UPDATE Cuentas SET Intentos = '0' WHERE Usuario = '$Usuario';  ";
                     $ResultSet = Ejecutar($Con, $sql);
                 }
-                if($Fila[3] == 0) {
-                    print("Cuenta no bloqueada");
-                    if($Fila[4] == 1) {
-                        print("Cuenta Activa");
+                if($Fila['Bloqueo'] == 0) {
+                    if($Fila['Estado'] == 1) {
+                        $_SESSION['usuario'] = $Usuario;
+                         $_SESSION['role'] = ($Fila['Tipo'] == 'A') ? 'admin' : 'user';
+                
+                         Desconectar($Con);
                         ////////////////////PERMITIR ACCESO
-                        if($Fila[2] == 'A') {
+                        if($Fila['Tipo'] == 'A') {
                             header("Location: MenuAdmin.php");
                         } else {
                             header("Location: MenuUsuario.php");
@@ -41,7 +42,7 @@
                 $sql = "UPDATE Cuentas SET Intentos = (Intentos +1) WHERE Usuario = '$Usuario';";
                 $ResultSet = Ejecutar($Con, $sql);
 
-                if($Fila[5] >= 3){
+                if($Fila['Intentos'] >= 3){
                     print("Máximo de intentos alcansados: Cuenta Bloqueada");
                     $sql = "UPDATE Cuentas SET Bloqueo = '1', Intentos = '0'  WHERE Usuario = '$Usuario'; ";
                     $ResultSet = Ejecutar($Con, $sql);
@@ -49,6 +50,6 @@
             }
     }
         
-    Desconectar($Con);
+   // Desconectar($Con);
 ?>
 
