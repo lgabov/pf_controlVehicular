@@ -19,7 +19,7 @@ $Id_domicilio = $_GET['Id_domicilio'];
 //Formar sql
 $sql = "UPDATE propietarios SET Fecha_nacimiento='$Fecha_nacimiento', Nombre='$Nombre', RFC='$RFC', Apellido_paterno='$Apellido_paterno', Apellido_materno='$Apellido_materno', Id_domicilio='$Id_domicilio' WHERE Id='$Id';";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);

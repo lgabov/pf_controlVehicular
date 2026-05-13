@@ -16,7 +16,7 @@ $Id_pago = $_GET['Id_pago'];
 //Formar sql
 $sql = "UPDATE multas SET Fecha='$Fecha', Hora='$Hora', Reporte_seccion='$Reporte_seccion', Nombre_via='$Nombre_via', Kilometro='$Kilometro', Fundamentos='$Fundamentos', Observaciones_personal='$Observaciones_personal', Observaciones_conductor='$Observaciones_conductor', Id_oficial='$Id_oficial', Id_pago='$Id_pago' WHERE Folio='$Folio'";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);

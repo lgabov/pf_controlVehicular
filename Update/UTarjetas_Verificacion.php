@@ -15,7 +15,7 @@ $Id_pago = $_GET['Id_pago'];
 //Formar sql
 $sql = "UPDATE tarjetas_verificacion SET Fecha_expedicion='$Fecha_expedicion', Tipo_servicio='$Tipo_servicio', Motivo='$Motivo', Semestre='$Semestre', Vigencia='$Vigencia', Linea_vigencia='$Linea_vigencia', Tecnico_verificador='$Tecnico_verificador', Numero_centro='$Numero_centro', Id_pago='$Id_pago' WHERE Folio='$Folio'";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);

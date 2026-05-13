@@ -4,7 +4,7 @@ $Linea_captura = $_POST["Linea_captura"];
 $sql = "DELETE FROM Pagos WHERE Linea_captura = '$Linea_captura';";
 print($sql);
 
-include("Controlador.php");
+include("../Controlador.php");
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasAfectadas = mysqli_affected_rows($Con);

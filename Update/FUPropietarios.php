@@ -1,7 +1,7 @@
 <?php
     $Id = $_GET['Id'];
 
-    include ('Controlador.php');
+    include ('../Controlador.php');
     $sql = "SELECT * FROM propietarios WHERE Id='$Id';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);

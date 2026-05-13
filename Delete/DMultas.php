@@ -4,7 +4,7 @@ $Folio = $_POST["Folio"];
 $sql = "DELETE FROM Multas WHERE Folio = '$Folio';";
 print($sql);
 
-include("Controlador.php");
+include("../Controlador.php");
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasAfectadas = mysqli_affected_rows($Con);

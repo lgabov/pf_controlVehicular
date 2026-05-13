@@ -18,7 +18,7 @@
     //print("<br>".$sql);
 
     //Enciar la instrucción al SMBD
-    include("Controlador.php");
+    include("../Controlador.php");
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
 

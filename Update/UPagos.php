@@ -9,7 +9,7 @@ $Instrumento = $_GET['Instrumento'];
 //Formar sql
 $sql = "UPDATE pagos SET Fecha_limite='$Fecha_limite', Importe='$Importe', Instrumento='$Instrumento' WHERE Linea_captura='$Linea_captura'";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);

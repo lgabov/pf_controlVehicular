@@ -1,7 +1,7 @@
 <?php
     $Numero_licencia = $_GET['Numero_licencia'];
 
-    include ('Controlador.php');
+    include ('../Controlador.php');
     $sql = "SELECT * FROM conductores WHERE Numero_licencia='$Numero_licencia';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);

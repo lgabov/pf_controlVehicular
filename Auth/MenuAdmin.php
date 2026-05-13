@@ -1,3 +1,8 @@
 <?php
 print("Menu de Administrador");
+print("<br>");
 ?>
+<a href="../Delete/">Eliminar </a><br>
+<a href="../Insert/">Insertar </a><br>
+<a href="../Select/">Consultar </a><br>
+<a href="../Update/">Actualizar </a><br>

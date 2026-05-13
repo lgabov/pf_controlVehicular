@@ -1,7 +1,7 @@
 <?php
     $Folio = $_GET['Folio'];
 
-    include ('Controlador.php');
+    include ('../Controlador.php');
     $sql = "SELECT * FROM tarjetas_verificacion WHERE Folio='$Folio';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);

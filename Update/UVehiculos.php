@@ -19,7 +19,7 @@ $Tipo_combustible = $_GET['Tipo_combustible'];
 //Formar sql
 $sql = "UPDATE vehiculos SET Año='$Año', Placa='$Placa', Marca='$Marca', Numero_serie='$Numero_serie', Origen='$Origen', Color='$Color', Cilindraje='$Cilindraje', Capacidad='$Capacidad', Puertas='$Puertas', Asientos='$Asientos', Transmision='$Transmision', Clave_vehicular='$Clave_vehicular', Tipo_combustible='$Tipo_combustible' WHERE Id='$Id'";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);

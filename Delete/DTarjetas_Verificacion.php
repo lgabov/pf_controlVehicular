@@ -4,7 +4,7 @@ $Folio = $_POST["Folio"];
 $sql = "DELETE FROM Tarjetas_Verificacion WHERE Folio = '$Folio';";
 print($sql);
 
-include("Controlador.php");
+include("../Controlador.php");
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasAfectadas = mysqli_affected_rows($Con);

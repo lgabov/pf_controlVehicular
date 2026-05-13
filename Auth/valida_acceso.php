@@ -3,7 +3,7 @@
     $Pwd = $_POST["Pwd"];
 
     print($Usuario. " ". $Pwd);
-    include("controlador.php");
+    include("../Controlador.php");
 
     $Con = Conectar();
     $sql = "SELECT * FROM Cuentas WHERE Usuario = '$Usuario'";
@@ -46,6 +46,7 @@
                     $sql = "UPDATE Cuentas SET Bloqueo = '1', Intentos = '0'  WHERE Usuario = '$Usuario'; ";
                     $ResultSet = Ejecutar($Con, $sql);
                 }
+            }
     }
         
     Desconectar($Con);

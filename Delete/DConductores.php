@@ -4,7 +4,7 @@ $Numero_licencia = $_POST["Numero_licencia"];
 $sql = "DELETE FROM Conductores WHERE Numero_licencia = '$Numero_licenia';";
 print($sql);
 
-include("Controlador.php");
+include("../Controlador.php");
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasAfectadas = mysqli_affected_rows($Con);

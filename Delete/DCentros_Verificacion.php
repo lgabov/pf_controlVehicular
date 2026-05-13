@@ -4,7 +4,7 @@ $Numero_centro = $_POST["Numero_centro"];
 $sql = "DELETE FROM Centros_Verificacion WHERE Numero_centro = '$Numero_centro';";
 print($sql);
 
-include("Controlador.php");
+include("../Controlador.php");
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasAfectadas = mysqli_affected_rows($Con);

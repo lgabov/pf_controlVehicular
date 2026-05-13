@@ -4,7 +4,7 @@ $Id = $_POST["Id"];
 $sql = "DELETE FROM Licencias WHERE Id = '$Id';";
 print($sql);
 
-include("Controlador.php");
+include("../Controlador.php");
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasAfectadas = mysqli_affected_rows($Con);

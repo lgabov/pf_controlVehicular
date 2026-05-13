@@ -1,7 +1,7 @@
 <?php
     $Linea_captura = $_GET['Linea_captura'];
 
-    include ('Controlador.php');
+    include ('../Controlador.php');
     $sql = "SELECT * FROM Pagos WHERE Linea_captura='$Linea_captura';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);

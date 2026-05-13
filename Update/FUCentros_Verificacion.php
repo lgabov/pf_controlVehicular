@@ -1,7 +1,7 @@
 <?php
     $Numero_centro = $_GET['Numero_centro'];
 
-    include ('Controlador.php');
+    include ('../Controlador.php');
     $sql = "SELECT * FROM centros_verificacion WHERE Numero_centro='$Numero_centro';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);

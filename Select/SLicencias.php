@@ -7,7 +7,7 @@
     $sql = "SELECT * FROM Licencias WHERE $Atributo like '%$Criterio%';";
 
     //Enviar la instruccion al SMBD
-    include("Controlador.php");
+    include("../Controlador.php");
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
     

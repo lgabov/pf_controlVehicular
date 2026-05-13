@@ -9,7 +9,7 @@ $Grupo = $_GET['Grupo'];
 //Formar sql
 $sql = "UPDATE Oficiales SET Nombre='$Nombre', Apellidos='$Apellidos', Grupo='$Grupo' WHERE Id='$Id'";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);

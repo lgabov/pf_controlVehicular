@@ -16,7 +16,7 @@ $Id_domicilio = $_GET['Id_domicilio'];
 //Formar sql
 $sql = "UPDATE conductores SET Nombre='$Nombre', Apellido_paterno='$Apellido_paterno', Apellido_materno='$Apellido_materno', Estado_procedencia='$Estado_procedencia', Fecha_nacimiento='$Fecha_nacimiento', Grupo_sanguineo='$Grupo_sanguineo', Donador_organos='$Donador_organos', Sexo='$Sexo', Id_domicilio='$Id_domicilio' WHERE Numero_licencia='$Numero_licencia'";
 //Ejecutar sql
-include ('Controlador.php');
+include ('../Controlador.php');
 $Con = Conectar();
 $ResultSet = Ejecutar($Con, $sql);
 $FilasActualizadas = mysqli_affected_rows($Con);
