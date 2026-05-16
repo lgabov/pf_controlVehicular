@@ -1,7 +1,7 @@
 <html>
     <label>Conductores</label>
     <br>
-    <form method="post" action="IConductores.php" >
+    <form method="post" action="IConductores.php"  enctype="multipart/form-data">
         <label> Numero_licencia</label>
         <input type="number" id= "Numero_licencia" name="Numero_licencia" required>
         <br>
@@ -86,8 +86,16 @@
 
         <label> Id_domicilio</label>
         <input type="number" id= "Id_domicilio" name="Id_domicilio" required>
-    
         <br>
+
+        <label> Foto</label>
+        <input type="file" id= "foto" name="foto" accept="image/png, image/jpeg, image/webp, image/jpg, image/jpeg"> 
+        <br>
+
+        <label> Firma</label>
+        <input type="file" id= "firma" name="firma" accept="image/png, image/jpeg, image/webp, image/jpg, image/jpeg"> 
+        <br>
+
         <input type="submit">
     </form>
 

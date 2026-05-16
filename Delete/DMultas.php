@@ -15,8 +15,7 @@ if($FilasAfectadas == 1) {
     print("0 registros eliminados");
 }
 
-printr($ResultSet);
-Deconectar($Con);
+Desconectar($Con);
 
 
 ?>
