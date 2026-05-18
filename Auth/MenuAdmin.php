@@ -82,7 +82,7 @@ print("<br>");
             <li><a href="">Conductores</a>
                 <ul>
                     <li><a href="../Select/FSConductores.html">Ver Conductores</a></li>
-                    <li><a href="../Insert/FConductores.html">Insertar Conductores</a></li>
+                    <li><a href="../Insert/FConductores.php">Insertar Conductores</a></li>
                     <li><a href="../Update/FUConductores.php">Actualizar Conductores</a></li>
                     <li><a href="../Delete/FDConductores.html">Eliminar Conductores</a></li>
                 </ul>
