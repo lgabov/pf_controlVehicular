@@ -1,5 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
 
+proteger(["admin"]);
 
 ini_set('display_errors', 1);
 

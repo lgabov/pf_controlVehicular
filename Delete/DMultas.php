@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
 $Folio = $_POST["Folio"];
 
 $sql = "DELETE FROM Multas WHERE Folio = '$Folio';";

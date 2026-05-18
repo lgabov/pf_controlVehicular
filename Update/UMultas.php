@@ -1,5 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
 
+proteger(["admin"]);
 //Recibir los datos
 $Folio = $_GET['Folio'];
 $Fecha = $_GET['Fecha'];

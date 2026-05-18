@@ -1,4 +1,7 @@
 <?php
+ require_once "../Auth/auth.php";
+
+proteger(["admin"]);
 
     //Recibir valores
     $Folio = $_POST['Folio'];

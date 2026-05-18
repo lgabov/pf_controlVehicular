@@ -1,3 +1,7 @@
+<?php
+require_once "../Auth/auth.php";
+proteger(["admin"]);
+?>
 <html>
     <form method="post" action="DCentros_Verificacion.php">
         <label>Numero_centro </label>

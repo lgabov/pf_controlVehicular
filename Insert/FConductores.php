@@ -1,10 +1,7 @@
 <?php
-session_start();
-// Validación de seguridad para el Administrador
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../login.html"); 
-    exit(); 
-}
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     $Linea_captura = $_GET['Linea_captura'];
 
     include ('../Controlador.php');

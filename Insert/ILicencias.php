@@ -1,5 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
 
+proteger(["admin"]);
     //Recibir valores
     $Id = $_POST['Id'];
     $Fecha_expedicion = $_POST['Fecha_expedicion'];

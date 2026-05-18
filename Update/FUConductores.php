@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     $Numero_licencia = $_GET['Numero_licencia'];
 
     include ('../Controlador.php');

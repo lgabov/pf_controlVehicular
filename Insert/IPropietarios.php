@@ -1,5 +1,7 @@
 <?php
+ require_once "../Auth/auth.php";
 
+proteger(["admin"]);
     //Recibir valores
     $Id = $_GET['Id'];
     $Fecha_nacimiento = $_GET['Fecha_nacimiento'];

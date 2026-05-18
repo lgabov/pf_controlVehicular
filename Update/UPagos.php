@@ -1,5 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
 
+proteger(["admin"]);
 //Recibir los datos
 $Linea_captura = $_GET['Linea_captura'];
 $Fecha_limite = $_GET['Fecha_limite'];

@@ -1,5 +1,9 @@
 <?php
 
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
+
     //Recibir valores
     $Numero_centro = $_REQUEST['Numero_centro'];
     $Hora_entrada = $_REQUEST['Hora_entrada'];

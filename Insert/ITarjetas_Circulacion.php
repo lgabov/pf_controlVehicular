@@ -1,5 +1,7 @@
 <?php
+ require_once "../Auth/auth.php";
 
+proteger(["admin"]);
     //Recibir valores
     $Folio = $_REQUEST['Folio'];
     $Vigencia = $_REQUEST['Vigencia'];

@@ -1,5 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
 
+proteger(["admin"]);
 //Recibir los datos
 $Numero_centro = $_GET['Numero_centro'];
 $Hora_entrada = $_GET['Hora_entrada'];

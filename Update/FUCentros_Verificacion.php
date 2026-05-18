@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     $Numero_centro = $_GET['Numero_centro'];
 
     include ('../Controlador.php');

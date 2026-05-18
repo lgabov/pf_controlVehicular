@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     $Folio = $_GET['Folio'];
 
     include ('../Controlador.php');

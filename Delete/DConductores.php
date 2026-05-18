@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     $Numero_licencia = $_POST["Numero_licencia"];
 
     $sql = "DELETE FROM Conductores WHERE Numero_licencia = '$Numero_licencia';";

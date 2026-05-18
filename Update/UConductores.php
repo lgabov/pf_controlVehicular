@@ -1,4 +1,7 @@
 php<?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     include ('../Controlador.php');
     $Con = Conectar();
 

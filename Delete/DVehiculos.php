@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
 $Id = $_POST["Id"];
 
 $sql = "DELETE FROM Vehiculos WHERE Id = '$Id';";

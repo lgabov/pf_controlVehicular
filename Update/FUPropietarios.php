@@ -1,4 +1,7 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin"]);
     $Id = $_GET['Id'];
 
     include ('../Controlador.php');

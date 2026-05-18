@@ -1,5 +1,9 @@
+<?php
+require_once "../Auth/auth.php";
+proteger(["admin"]);
+?>
 <html>
-    <form method="post" action="DPropietarios.php">
+    <form method="post" action="DVehiculos.php">
         <label>Id </label>
         <input type="text" name="Id" id="Id">
         <input type="submit">

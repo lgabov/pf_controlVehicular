@@ -1,4 +1,6 @@
 <?php
+require_once "../Auth/auth.php";
+proteger(["admin"]);
 $Linea_captura = $_POST["Linea_captura"];
 
 $sql = "DELETE FROM Pagos WHERE Linea_captura = '$Linea_captura';";
