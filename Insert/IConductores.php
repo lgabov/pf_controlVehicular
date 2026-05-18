@@ -1,4 +1,11 @@
 <?php
+
+
+ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+    //Recibir valores
+
     $Numero_licencia = $_POST['Numero_licencia'];
     $Nombre = $_POST['Nombre'];
     $Apellido_paterno = $_POST['Apellido_paterno'];
@@ -9,6 +16,9 @@
     $Donador_organos = $_POST['Donador_organos'];
     $Sexo = $_POST['Sexo'];
     $Id_domicilio = $_POST['Id_domicilio'];
+    
+    $carpeta_fotos = '../public/imagenes/fotos/';
+    $carpeta_firmas = '../public/imagenes/firmas/';
 
     $carpeta_destino = '../Public/';
     if (!file_exists($carpeta_destino)) {
