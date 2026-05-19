@@ -1,3 +1,7 @@
+<?php
+require_once "../Auth/auth.php";
+proteger(["admin", "user"]);
+?>
 <html>
     <form method="get" action="SVehiculos.php">
         <label>Criterio </label>

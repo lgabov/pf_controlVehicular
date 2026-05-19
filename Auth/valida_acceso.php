@@ -22,7 +22,18 @@ include("../Controlador.php");
                 if($Fila['Bloqueo'] == 0) {
                     if($Fila['Estado'] == 1) {
                         $_SESSION['usuario'] = $Usuario;
-                         $_SESSION['role'] = ($Fila['Tipo'] == 'A') ? 'admin' : 'user';
+                         if($Fila['Tipo'] == 'A') {
+
+                          $_SESSION['role'] = 'admin';
+
+                           } elseif($Fila['Tipo'] == 'U') {
+
+                          $_SESSION['role'] = 'user';
+
+                           } else {
+
+                                die("Tipo de usuario inválido");
+                                 }
                 
                          Desconectar($Con);
                         ////////////////////PERMITIR ACCESO

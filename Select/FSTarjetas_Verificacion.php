@@ -1,3 +1,8 @@
+
+<?php
+require_once "../Auth/auth.php";
+proteger(["admin", "user"]);
+?>
 <html>
     <form method="get" action="SCentros_Verificacion.php">
         <label>Criterio </label>

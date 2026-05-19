@@ -4,9 +4,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.html"); 
     exit(); 
 }
-
+include("../FuncionesMenu.php");
 print("Menu de Administrador");
 print("<br>");
+scriptActualizar("Propietarios", "FUPropietarios");
 ?>
 
 <html>
@@ -73,90 +74,92 @@ print("<br>");
             <li><a href="">Inicio</a></li>
             <li><a href="">Centros de Verificación</a>
                 <ul>
-                    <li><a href="../Select/FSCentros_Verificacion.html">Ver Centros</a></li>
-                    <li><a href="../Insert/FCentros_Verificacion.html">Insertar Centros</a></li>
-                    <li><a href="../Update/FUCentros_Verificacion.php">Actualizar Centros</a></li>
-                    <li><a href="../Delete/FDCentros_Verificacion.html">Eliminar Centros</a></li>
+                    <li><a href="../Select/FSCentros_Verificacion.php">Ver Centros</a></li>
+                    <li><a href="../Insert/FCentros_Verificacion.php">Insertar Centros</a></li>
+                    <li> <a href="#"<?php scriptActualizar("Propietarios", "FUPropietarios"); ?>>
+                    Actualizar Propietarios </a></li>
+                    <li><a href="../Delete/FDCentros_Verificacion.php">Eliminar Centros</a></li>
                 </ul>
             </li>
             <li><a href="">Conductores</a>
                 <ul>
-                    <li><a href="../Select/FSConductores.html">Ver Conductores</a></li>
+                    <li><a href="../Select/FSConductores.php">Ver Conductores</a></li>
                     <li><a href="../Insert/FConductores.php">Insertar Conductores</a></li>
                     <li><a href="../Update/FUConductores.php">Actualizar Conductores</a></li>
-                    <li><a href="../Delete/FDConductores.html">Eliminar Conductores</a></li>
+                    <li><a href="../Delete/FDConductores.php">Eliminar Conductores</a></li>
                 </ul>
             </li>
             <li><a href="">Domicilios</a>
                 <ul>
-                    <li><a href="../Select/FSDomicilios.html">Ver Domicilios</a></li>
-                    <li><a href="../Insert/FDomicilios.html">Insertar Domicilios</a></li>
+                    <li><a href="../Select/FSDomicilios.php">Ver Domicilios</a></li>
+                    <li><a href="../Insert/FDomicilios.php">Insertar Domicilios</a></li>
                     <li><a href="../Update/FUDomicilios.php">Actualizar Domicilios</a></li>
-                    <li><a href="../Delete/FDDomicilios.html">Eliminar Domicilios</a></li>
+                    <li><a href="../Delete/FDDomicilios.php">Eliminar Domicilios</a></li>
                 </ul>
             </li>
             <li><a href="">Licencias</a>
                 <ul>
-                    <li><a href="../Select/FSLicencias.html">Ver Licencias</a></li>
-                    <li><a href="../Insert/FLicencias.html">Insertar Licencias</a></li>
+                    <li><a href="../Select/FSLicencias.php">Ver Licencias</a></li>
+                    <li><a href="../Insert/FLicencias.php">Insertar Licencias</a></li>
                     <li><a href="../Update/FULicencias.php">Actualizar Licencias</a></li>
-                    <li><a href="../Delete/FDLicencias.html">Eliminar Licencias</a></li>
+                    <li><a href="../Delete/FDLicencias.php">Eliminar Licencias</a></li>
                 </ul>
             </li>
             <li><a href="">Multas</a>
                 <ul>
-                    <li><a href="../Select/FSMultas.html">Ver Multas</a></li>
-                    <li><a href="../Insert/FMultas.html">Insertar Multas</a></li>
+                    <li><a href="../Select/FSMultas.php">Ver Multas</a></li>
+                    <li><a href="../Insert/FMultas.php">Insertar Multas</a></li>
                     <li><a href="../Update/FUMultas.php">Actualizar Multas</a></li>
-                    <li><a href="../Delete/FDMultas.html">Eliminar Multas</a></li>
+                    <li><a href="../Delete/FDMultas.php">Eliminar Multas</a></li>
                 </ul>
             </li>
             <li><a href="">Oficiales</a>
                 <ul>
-                    <li><a href="../Select/FSOficiales.html">Ver Oficiales</a></li>
-                    <li><a href="../Insert/FOficiales.html">Insertar Oficiales</a></li>
+                    <li><a href="../Select/FSOficiales.php">Ver Oficiales</a></li>
+                    <li><a href="../Insert/FOficiales.php">Insertar Oficiales</a></li>
                     <li><a href="../Update/FUOficiales.php">Actualizar Oficiales</a></li>
-                    <li><a href="../Delete/FDOficiales.html">Eliminar Oficiales</a></li>
+                    <li><a href="../Delete/FDOficiales.php">Eliminar Oficiales</a></li>
                 </ul>
             </li>
             <li><a href="">Pagos</a>
                 <ul>
-                    <li><a href="../Select/FSPagos.html">Ver Pagos</a></li>
-                    <li><a href="../Insert/FPagos.html">Insertar Pagos</a></li>
+                    <li><a href="../Select/FSPagos.php">Ver Pagos</a></li>
+                    <li><a href="../Insert/FPagos.php">Insertar Pagos</a></li>
                     <li><a href="../Update/FUPagos.php">Actualizar Pagos</a></li>
-                    <li><a href="../Delete/FDPagos.html">Eliminar Pagos</a></li>
+                    <li><a href="../Delete/FDPagos.php">Eliminar Pagos</a></li>
                 </ul>
             </li>
             <li><a href="">Propietarios</a>
                 <ul>
-                    <li><a href="../Select/FSPropietarios.html">Ver Propietarios</a></li>
-                    <li><a href="../Insert/FPropietarios.html">Insertar Propietarios</a></li>
-                    <li><a href="../Update/FUPropietarios.php">Actualizar Propietarios</a></li>
-                    <li><a href="../Delete/FDPropietarios.html">Eliminar Propietarios</a></li>
+                    <li><a href="../Select/FSPropietarios.php">Ver Propietarios</a></li>
+                    <li><a href="../Insert/FPropietarios.php">Insertar Propietarios</a></li>
+                    <li> <a href="#"<?php scriptActualizar("Propietarios", "FUPropietarios"); ?>>
+                    Actualizar Propietarios </a></li>
+                    <li><a href="../Delete/FDPropietarios.php">Eliminar Propietarios</a></li>
                 </ul>
             </li>
             <li><a href="">Tarjetas de Circulación</a>
                 <ul>
-                    <li><a href="../Select/FSTarjetas_Circulacion.html">Ver Tarjetas</a></li>
-                    <li><a href="../Insert/FTarjetas_Circulacion.html">Insertar Tarjetas</a></li>
+                    <li><a href="../Select/FSTarjetas_Circulacion.php">Ver Tarjetas</a></li>
+                    <li><a href="../Insert/FTarjetas_Circulacion.php">Insertar Tarjetas</a></li>
                     <li><a href="../Update/FUTarjetas_Circulacion.php">Actualizar Tarjetas</a></li>
                     <li><a href="../Delete/FDTarjetas_Circulacion.php">Eliminar Tarjetas</a></li>
                 </ul>
             </li>
             <li><a href="">Tarjetas de Verificación</a>
                 <ul>
-                    <li><a href="../Select/FSTarjetas_Verificacion.html">Ver Tarjetas</a></li>
-                    <li><a href="../Insert/FTarjetas_Verificacion.html">Insertar Tarjetas</a></li>
+                    <li><a href="../Select/FSTarjetas_Verificacion.php">Ver Tarjetas</a></li>
+                    <li><a href="../Insert/FTarjetas_Verificacion.php">Insertar Tarjetas</a></li>
                     <li><a href="../Update/FUTarjetas_Verificacion.php">Actualizar Tarjetas</a></li>
                     <li><a href="../Delete/FDTarjetas_Verificacion.php">Eliminar Tarjetas</a></li>
                 </ul>
             </li>
             <li><a href="">Vehículos</a>
                 <ul>
-                    <li><a href="../Select/FSVehiculos.html">Ver Vehículos</a></li>
-                    <li><a href="../Insert/FVehiculos.html">Insertar Vehículos</a></li>
+                    <li><a href="../Select/FSVehiculos.php">Ver Vehículos</a></li>
+                    <li><a href="../Insert/FVehiculos.php">Insertar Vehículos</a></li>
                     <li><a href="../Update/FUVehiculos.php">Actualizar Vehículos</a></li>
-                    <li><a href="../Delete/FDVehiculos.html">Eliminar Vehículos</a></li>
+                    <li><a href="../Delete/FDVehiculos.php">Eliminar Vehículos</a></li>
                 </ul>
             </li>
         </ul>

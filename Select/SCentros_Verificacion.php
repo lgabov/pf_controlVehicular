@@ -1,4 +1,8 @@
 <?php
+require_once "../Auth/auth.php";
+
+proteger(["admin", "user"]);
+
     //recibir parametros del frontend
     $Criterio = $_GET["Criterio"];
     $Atributo = $_GET["Atributo"];

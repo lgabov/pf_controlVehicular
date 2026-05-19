@@ -1,3 +1,8 @@
+
+<?php
+require_once "../Auth/auth.php";
+proteger(["admin", "user"]);
+?>
 <html>
     <form method="get" action="SPropietarios.php">
         <label>Criterio </label>

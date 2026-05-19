@@ -4,7 +4,10 @@ session_start();
 
 function proteger($rolesPermitidos = [])
 {
-    if(!isset($_SESSION['usuario'])) {
+    if(
+        !isset($_SESSION['usuario']) ||
+        !isset($_SESSION['role'])
+    ) {
 
         header("Location: ../Auth/login.html");
         exit();
@@ -14,7 +17,7 @@ function proteger($rolesPermitidos = [])
 
         if(!in_array($_SESSION['role'], $rolesPermitidos)) {
 
-            header("Location: ../Auth/login.html");
+            header("Location: ../Auth/login.php");
             exit();
         }
     }

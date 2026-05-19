@@ -70,57 +70,57 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
             <li><a href="">Inicio</a></li>
             <li><a href="">Centros de Verificación</a>
                 <ul>
-                    <li><a href="../Select/FSCentros_Verificacion.html">Ver Centros</a></li>
+                    <li><a href="../Select/FSCentros_Verificacion.php">Ver Centros</a></li>
                 </ul>
             </li>
             <li><a href="">Conductores</a>
                 <ul>
-                    <li><a href="../Select/FSConductores.html">Ver Conductores</a></li>
+                    <li><a href="../Select/FSConductores.php">Ver Conductores</a></li>
                 </ul>
             </li>
             <li><a href="">Domicilios</a>
                 <ul>
-                    <li><a href="../Select/FSDomicilios.html">Ver Domicilios</a></li>
+                    <li><a href="../Select/FSDomicilios.php">Ver Domicilios</a></li>
                 </ul>
             </li>
             <li><a href="">Licencias</a>
                 <ul>
-                    <li><a href="../Select/FSLicencias.html">Ver Licencias</a></li>
+                    <li><a href="../Select/FSLicencias.php">Ver Licencias</a></li>
                 </ul>
             </li>
             <li><a href="">Multas</a>
                 <ul>
-                    <li><a href="../Select/FSMultas.html">Ver Multas</a></li>
+                    <li><a href="../Select/FSMultas.php">Ver Multas</a></li>
                 </ul>
             </li>
             <li><a href="">Oficiales</a>
                 <ul>
-                    <li><a href="../Select/FSOficiales.html">Ver Oficiales</a></li>
+                    <li><a href="../Select/FSOficiales.php">Ver Oficiales</a></li>
                 </ul>
             </li>
             <li><a href="">Pagos</a>
                 <ul>
-                    <li><a href="../Select/FSPagos.html">Ver Pagos</a></li>
+                    <li><a href="../Select/FSPagos.php">Ver Pagos</a></li>
                 </ul>
             </li>
             <li><a href="">Propietarios</a>
                 <ul>
-                    <li><a href="../Select/FSPropietarios.html">Ver Propietarios</a></li>
+                    <li><a href="../Select/FSPropietarios.php">Ver Propietarios</a></li>
                 </ul>
             </li>
             <li><a href="">Tarjetas de Circulación</a>
                 <ul>
-                    <li><a href="../Select/FSTarjetas_Circulacion.html">Ver Tarjetas</a></li>
+                    <li><a href="../Select/FSTarjetas_Circulacion.php">Ver Tarjetas</a></li>
                 </ul>
             </li>
             <li><a href="">Tarjetas de Verificación</a>
                 <ul>
-                    <li><a href="../Select/FSTarjetas_Verificacion.html">Ver Tarjetas</a></li>
+                    <li><a href="../Select/FSTarjetas_Verificacion.php">Ver Tarjetas</a></li>
                 </ul>
             </li>
             <li><a href="">Vehículos</a>
                 <ul>
-                    <li><a href="../Select/FSVehiculos.html">Ver Vehículos</a></li>
+                    <li><a href="../Select/FSVehiculos.php">Ver Vehículos</a></li>
                 </ul>
             </li>
         </ul>

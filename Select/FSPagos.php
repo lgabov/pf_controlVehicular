@@ -1,3 +1,8 @@
+
+<?php
+require_once "../Auth/auth.php";
+proteger(["admin", "user"]);
+?>
 <html>
     <form method="get" action="SPagos.php">
         <label>Criterio </label>
