@@ -17,7 +17,7 @@ function proteger($rolesPermitidos = [])
 
         if(!in_array($_SESSION['role'], $rolesPermitidos)) {
 
-            header("Location: ../Auth/login.php");
+            header("Location: ../Auth/login.html");
             exit();
         }
     }

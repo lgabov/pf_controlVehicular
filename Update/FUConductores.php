@@ -2,9 +2,10 @@
 require_once "../Auth/auth.php";
 
 proteger(["admin"]);
+include ('../Controlador.php');
+$Con = Conectar();
+validarExistenciaID($Con, 'conductores', $_GET['Id'], 'Conductores');
     $Numero_licencia = $_GET['Numero_licencia'];
-
-    include ('../Controlador.php');
     $sql = "SELECT * FROM conductores WHERE Numero_licencia='$Numero_licencia';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
