@@ -1,7 +1,9 @@
 <?php
 require_once "../Auth/auth.php";
-
 proteger(["admin"]);
+
+include ('../Controlador.php');
+validarExistenciaID($Con, 'conductores', 'Numero_licencia', $_GET['Numero_licencia'], 'Conductores');
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -123,6 +123,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
                     <li><a href="../Select/FSVehiculos.php">Ver Vehículos</a></li>
                 </ul>
             </li>
+            <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
         </ul>
     </div>
 </body>

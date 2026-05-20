@@ -1,6 +1,5 @@
 <?php
 require_once "../Auth/auth.php";
-
 proteger(["admin"]);
 ?>
 <html>

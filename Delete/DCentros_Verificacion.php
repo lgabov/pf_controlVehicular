@@ -2,6 +2,8 @@
 require_once "../Auth/auth.php";
 
 proteger(["admin"]);
+
+
 $Numero_centro = $_POST["Numero_centro"];
 
 $sql = "DELETE FROM Centros_Verificacion WHERE Numero_centro = '$Numero_centro';";

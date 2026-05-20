@@ -2,9 +2,11 @@
 require_once "../Auth/auth.php";
 
 proteger(["admin"]);
+include ('../Controlador.php');
+$Con = Conectar();
+validarExistenciaID($Con, 'multas', $_GET['Id'], 'Multas');
     $Folio = $_GET['Folio'];
 
-    include ('../Controlador.php');
     $sql = "SELECT * FROM multas WHERE Folio='$Folio';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);

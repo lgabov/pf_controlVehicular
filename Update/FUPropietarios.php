@@ -2,11 +2,12 @@
 require_once "../Auth/auth.php";
 
 proteger(["admin"]);
-    $Id = $_GET['Id'];
 
+    $Id = $_GET['Id'];
     include ('../Controlador.php');
     $sql = "SELECT * FROM propietarios WHERE Id='$Id';";
     $Con = Conectar();
+    validarExistenciaID($Con, 'propietarios', 'Id', $_GET['Id'], 'Propietarios');
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 
