@@ -35,9 +35,15 @@ proteger(["admin", "user"]);
             <td>$Fila[2]</td>
             <td>$Fila[3]</td>
             <td>$Fila[4]</td>
+            <td>
+            <button onclick=\"location.href='../Archivos/Licencia_archivo.php?LicenciaId=".$Fila[0]."'\">
+                Generar archivo
+            </button>
+            </td> 
         </tr>
-        </table>");
+        ");
     };
+    print("</table>");
 
     print("Numero de filas encontradas: $NumFilas");
 

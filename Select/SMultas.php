@@ -1,6 +1,10 @@
 <?php
 require_once "../Auth/auth.php";
-
+/*
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); 
+*/
 proteger(["admin", "user"]);
     //recibir parametros del frontend
     $Criterio = $_GET["Criterio"];
@@ -47,9 +51,15 @@ proteger(["admin", "user"]);
             <td>$Fila[8]</td>
             <td>$Fila[9]</td>
             <td>$Fila[10]</td>
-        </tr>
-        </table>");
+            <td>
+                <button onclick=\"location.href='../Archivos/Multa_archivo.php?MultaId=".$Fila[0]."'\">
+                    Generar archivo
+                </button>
+            </td>        
+        </tr>"
+    );
     };
+    print("</table>");
 
     print("Numero de filas encontradas: $NumFilas");
 

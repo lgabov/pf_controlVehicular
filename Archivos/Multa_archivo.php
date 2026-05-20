@@ -7,17 +7,17 @@ error_reporting(E_ALL);
 */
 
 //*-------------------------------
-    include("Controlador.php");
+    include("../Controlador.php");
+    $MultaId = $_GET['MultaId'];
     $Con = Conectar();
     //$Numero_licencia=$_GET['Numero_licencia'];
-    $sql = "SELECT * FROM v_info_multas WHERE Folio = 101";
+    $sql = "SELECT * FROM v_info_multas WHERE Folio = $MultaId";
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 
     Desconectar($Con);
 //-------------------------------------
 
-//210 270
 require('fpdf.php');
 $pdf = new FPDF('L', 'mm', [105,135]);
 
@@ -78,9 +78,9 @@ $pdf->SetXY(25, 65);
 $pdf->MultiCell(30,4,"$Fila[4]");
 
 //Imagenes
-$pdf->Image('system_sex.png', 21.3, 70, 35, 15);
+//$pdf->Image('system_sex.png', 21.3, 70, 35, 15);
 
-$pdf->Image('escudo.png', 90, 1, 10, 12);
+//$pdf->Image('escudo.png', 90, 1, 10, 12);
 
 
 
@@ -90,20 +90,26 @@ $pdf->MultiCell(60,6,'08422 solo ventanilla vancaria');
 $pdf->SetXY(57, 78);
 $pdf->MultiCell(60,6,'Cuenta');
 
+//Respaldo de archivo XML
+$archivo = __DIR__ . '/respaldos_multas/info_multa101.xml';
+$Manejador = fopen($archivo, "w+");
+
+fputs($Manejador, "<multa>");
+fputs($Manejador, "<domicilio>$Fila[0]</domicilio>\n");
+fputs($Manejador, "<conductor>$Fila[1]</conductor>\n");
+fputs($Manejador, "<RFC>$Fila[2]</RFC>\n");
+fputs($Manejador, "<fecha>$Fila[3]</fecha>\n");
+fputs($Manejador, "<folio>$Fila[4]</folio>\n");
+fputs($Manejador, "<fecha_limite>$Fila[5]</fecha_limite>\n");
+fputs($Manejador, "<importe>$Fila[6]</importe>\n");
+fputs($Manejador, "<fundamentos>$Fila[7]</fundamentos>\n");
+
+fputs($Manejador, "</multa>");
+fflush($Manejador); 
+fclose($Manejador);
+
 $pdf->Output('I');
 
 
-$archivo = "info_multa.txt";
-$Manejador = fopen($archivo, "w+");
-fputs($Manejador, $Fila[0]);
-fputs($Manejador, $Fila[1]);
-fputs($Manejador, $Fila[2]);
-fputs($Manejador, $Fila[3]);
-fputs($Manejador, $Fila[4]);
-fputs($Manejador, $Fila[5]);
-fputs($Manejador, $Fila[6]);
-fputs($Manejador, $Fila[7]);
-fflush($Manejador); 
-fclose($Manejador);
 
 ?>

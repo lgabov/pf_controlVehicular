@@ -1,15 +1,19 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); 
+
+//*------------------------------------------------
 include("../Controlador.php");
-
 $Con = Conectar();
-
-$sql = "SELECT * FROM vista_conductores WHERE Numero_licencia = 100;";
+$sql = "SELECT * FROM vista_licencia WHERE id = 101;";
 $ResultSet = Ejecutar($Con, $sql);
-
 $Fila = mysqli_fetch_assoc($ResultSet);
 
 Desconectar($Con);
+//*------------------------------------------------
+
 
 require('../fpdf.php');
 
@@ -22,7 +26,7 @@ $pdf->SetAutoPageBreak(false);
 //Encabezado
 $pdf->SetFont('Arial','',3);
 
-$pdf->Image('../Public/escudo.png', 5, 6, 7, 7);
+//$pdf->Image('../Public/escudo.png', 5, 6, 7, 7);
 
 $pdf->SetXY(14, 5);
 $pdf->MultiCell(30,2,'Estados Unidos Mexicanos',0,'L');
@@ -38,7 +42,7 @@ $pdf->SetXY(14, 12);
 $pdf->MultiCell(30,3,'Licencia para conducir',0,'L');
 
 //Foto
-$pdf->Image($Fila['foto'], 30, 18, 20, 22);
+//$pdf->Image($Fila['foto'], 30, 18, 20, 22);
 
 $pdf->SetXY(15, 29);
 $pdf->SetFont('Arial','',3);
@@ -216,6 +220,25 @@ $pdf->SetXY(15, 76);
 $pdf->SetFont('Arial', 'B', 5);
 
 $pdf->MultiCell(30,2.5,'SECRETARIA DE SEGURIDAD CIUDADANA', 0,'L');
+
+//Respaldo de archivo XML
+$archivo = __DIR__ . '/respaldos_licencias/info_licencia101.xml';
+$Manejador = fopen($archivo, "w+");
+
+fputs($Manejador, "<licencia>");
+fputs($Manejador, "<domicilio>$Fila[0]</domicilio>\n");
+fputs($Manejador, "<conductor>$Fila[1]</conductor>\n");
+fputs($Manejador, "<RFC>$Fila[2]</RFC>\n");
+fputs($Manejador, "<fecha>$Fila[3]</fecha>\n");
+fputs($Manejador, "<folio>$Fila[4]</folio>\n");
+fputs($Manejador, "<fecha_limite>$Fila[5]</fecha_limite>\n");
+fputs($Manejador, "<importe>$Fila[6]</importe>\n");
+fputs($Manejador, "<fundamentos>$Fila[7]</fundamentos>\n");
+
+fputs($Manejador, "</licencia>");
+fflush($Manejador); 
+fclose($Manejador);
+
 
 $pdf->Output('I');
 
