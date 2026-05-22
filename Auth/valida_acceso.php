@@ -61,6 +61,6 @@ include("../Controlador.php");
             }
     }
         
-   // Desconectar($Con);
+   Desconectar($Con);
 ?>
 
