@@ -6,8 +6,9 @@ error_reporting(E_ALL);
 
 //*------------------------------------------------
 include("../Controlador.php");
+
 $Con = Conectar();
-$sql = "SELECT * FROM vista_licencia WHERE id = 101;";
+$sql = "SELECT * FROM vista_conductores WHERE Numero_licencia = 100;";
 $ResultSet = Ejecutar($Con, $sql);
 $Fila = mysqli_fetch_assoc($ResultSet);
 
