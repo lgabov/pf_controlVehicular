@@ -4,10 +4,13 @@ require_once "../Auth/auth.php";
 proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
-validarExistenciaID($Con, 'conductores', $_GET['Id'], 'Conductores');
-    $Numero_licencia = $_GET['Numero_licencia'];
+
+validarExistenciaID($Con, 'conductores','Numero_licencia', $_GET['Id'], 'Conductores');
+
+
+
+    $Numero_licencia = $_GET['Id'];
     $sql = "SELECT * FROM conductores WHERE Numero_licencia='$Numero_licencia';";
-    $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 

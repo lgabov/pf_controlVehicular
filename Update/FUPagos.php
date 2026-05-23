@@ -4,8 +4,9 @@ require_once "../Auth/auth.php";
 proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
-validarExistenciaID($Con, 'pagos', $_GET['Id'], 'Pagos');
-    $Linea_captura = $_GET['Linea_captura'];
+validarExistenciaID($Con, 'pagos','Linea_captura', $_GET['Id'], 'Pagos');
+
+    $Linea_captura = $_GET['Id'];
 
     $sql = "SELECT * FROM Pagos WHERE Linea_captura='$Linea_captura';";
     $Con = Conectar();

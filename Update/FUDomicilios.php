@@ -4,7 +4,7 @@ require_once "../Auth/auth.php";
 proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
-validarExistenciaID($Con, 'domicilios', $_GET['Id'], 'Domicilios');
+validarExistenciaID($Con, 'domicilios','Id', $_GET['Id'], 'Domicilios');
     $Id = $_GET['Id'];
 
     $sql = "SELECT * FROM domicilios WHERE Id='$Id';";
