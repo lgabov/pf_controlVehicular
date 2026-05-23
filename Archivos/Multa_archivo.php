@@ -78,9 +78,9 @@ $pdf->SetXY(25, 65);
 $pdf->MultiCell(30,4,"$Fila[4]");
 
 //Imagenes
-//$pdf->Image('system_sex.png', 21.3, 70, 35, 15);
+$pdf->Image('../public/Imagenes_archivos/banorte.png', 21.3, 70, 35, 15);
 
-//$pdf->Image('escudo.png', 90, 1, 10, 12);
+$pdf->Image('../public/Imagenes_archivos/escudo.png', 90, 1, 10, 12);
 
 
 

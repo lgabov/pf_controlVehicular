@@ -36,7 +36,7 @@ proteger(["admin", "user"]);
             <td>$Fila[3]</td>
             <td>$Fila[4]</td>
             <td>
-            <button onclick=\"location.href='../Archivos/Licencia_archivo.php?LicenciaId=".$Fila[0]."'\">
+            <button onclick=\"location.href='../Archivos/Licencia_archivo.php?Numero_licencia=" . $Fila[0] . "'\">
                 Generar archivo
             </button>
             </td> 

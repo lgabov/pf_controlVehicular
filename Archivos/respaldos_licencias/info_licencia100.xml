@@ -1,0 +1,15 @@
+<numero_licencia>100</numero_licencia>
+<nombre>Luis Gabriel</nombre>
+<apellido_paterno>Vazquez</apellido_paterno>
+<fecha_nacimiento>0000-00-00</fecha_nacimiento>
+<fecha_expedicion>1999-05-14</fecha_expedicion>
+<fecha_validez>2134-05-06</fecha_validez>
+<antiguedad>2022-03-12</antiguedad>
+<localidad>Queretaro</localidad>
+<municipio>Huimilpan</municipio>
+<entidad_federativa>Queretaro</entidad_federativa>
+<grupo_sanguineo>A+</grupo_sanguineo>
+<donador_organos>Si</donador_organos>
+<foto>../Public/uploads/1779116621_foto.jpg</foto>
+<firma>../Public/uploads/1779117582_firma.png</firma>
+</licencia>
