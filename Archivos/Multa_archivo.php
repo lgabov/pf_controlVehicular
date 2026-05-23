@@ -11,7 +11,7 @@ error_reporting(E_ALL);
     $MultaId = $_GET['MultaId'];
     $Con = Conectar();
     //$Numero_licencia=$_GET['Numero_licencia'];
-    $sql = "SELECT * FROM v_info_multas WHERE Folio = $MultaId";
+    $sql = "SELECT * FROM vista_multas WHERE Folio = $MultaId";
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 
