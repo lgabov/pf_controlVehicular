@@ -1,6 +1,10 @@
 <?php
 require_once "../Auth/auth.php";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); 
+
 proteger(["admin", "user"]);
     //recibir parametros del frontend
     $Criterio = $_GET["Criterio"];
@@ -47,8 +51,9 @@ proteger(["admin", "user"]);
             <td>$Fila[9]</td>
 
         </tr>
-        </table>");
+        ");
     };
+    print("</table>");
 
     print("Numero de filas encontradas: $NumFilas");
 

@@ -5,8 +5,8 @@ proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
 validarExistenciaID($Con, 'centros_verificacion', $_GET['Id'], 'Centros de Verificación');
-    $Numero_centro = $_GET['Numero_centro'];
-    $sql = "SELECT * FROM centros_verificacion WHERE Numero_centro='$Numero_centro';";
+    $Id = $_GET['Id'];
+    $sql = "SELECT * FROM centros_verificacion WHERE Numero_centro='$Id';";
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 

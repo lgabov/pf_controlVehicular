@@ -5,9 +5,9 @@ proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
 validarExistenciaID($Con, 'tarjetas_verificacion', $_GET['Id'], 'Tarjetas de Verificación');
-    $Folio = $_GET['Folio'];
+    $Id = $_GET['Id'];
 
-    $sql = "SELECT * FROM tarjetas_verificacion WHERE Folio='$Folio';";
+    $sql = "SELECT * FROM tarjetas_verificacion WHERE Folio='$Id';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);

@@ -23,14 +23,22 @@ $sql = "UPDATE propietarios SET Fecha_nacimiento='$Fecha_nacimiento', Nombre='$N
 //Ejecutar sql
 include ('../Controlador.php');
 $Con = Conectar();
-$ResultSet = Ejecutar($Con, $sql);
-$FilasActualizadas = mysqli_affected_rows($Con);
+try {
+    $ResultSet = Ejecutar($Con, $sql);
+    if (mysqli_affected_rows($Con) > 0) {
+        print("Registro actualizado con éxito.");
+    } else {
+        print("Registro procesado (sin cambios realizados o ID no encontrado).");
+    }
 
-Desconectar($Con);
+} catch (mysqli_sql_exception $e) {
 
-if($FilasActualizadas == 0){
-    print("0 Filas actualizadas");
-}else{
-    print("1 Fila actualizada");
+    if ($e->getCode() == 1062) {
+        print("Error: No puedes usar ese ID porque ya pertenece a otro registro.");
+    } else {
+        print("Error interno en la base de datos: " . $e->getMessage());
+    }
+} finally {
+    Desconectar($Con);
 }
 ?>

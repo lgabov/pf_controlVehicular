@@ -12,6 +12,10 @@ $sql = "SELECT * FROM vista_conductores WHERE Numero_licencia = '$Numero_licenci
 $ResultSet = Ejecutar($Con, $sql);
 $Fila = mysqli_fetch_assoc($ResultSet);
 
+if(!$Fila){
+    die("No se encontró ningún conductor con el número de licencia proporcionado.");
+}
+
 //print_r($Fila);
 
 Desconectar($Con);

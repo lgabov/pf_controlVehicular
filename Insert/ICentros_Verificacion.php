@@ -16,21 +16,27 @@ proteger(["admin"]);
     print("Hora_salida= " . $Hora_salida . "<br>");
     */
     
-    //Instruccion sql
-    $sql = "INSERT INTO Centros_Verificacion (Numero_centro, Hora_entrada, Hora_salida)
-    VALUES ('$Numero_centro', '$Hora_entrada', '$Hora_salida');";
-    //print("<br>".$sql);
+
 
     //Enciar la instrucción al SMBD
     include("../Controlador.php");
     $Con = Conectar();
-    $ResultSet = Ejecutar($Con, $sql);
+    try {
+        //Instruccion sql
+        $sql = "INSERT INTO Centros_Verificacion (Numero_centro, Hora_entrada, Hora_salida)
+        VALUES ('$Numero_centro', '$Hora_entrada', '$Hora_salida');";
+        $ResultSet = Ejecutar($Con, $sql);
+        print("Registro insertado correctamente.");
 
-    if($ResultSet == 1){
-        print("1 Registro insertado");
-    } else {
-        print($ResultSet);
     }
+    catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {
+            print("Error: El Numero de centro asignado ya se encuentra registrado en el sistema.");
+        } else {
+            print("Error interno en la base de datos: " . $e->getMessage());
+        }
 
-    Desconectar($Con);
+    } finally {
+        Desconectar($Con);
+    }
 ?>

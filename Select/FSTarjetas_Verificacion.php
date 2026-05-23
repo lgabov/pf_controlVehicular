@@ -4,7 +4,7 @@ require_once "../Auth/auth.php";
 proteger(["admin", "user"]);
 ?>
 <html>
-    <form method="get" action="SCentros_Verificacion.php">
+    <form method="get" action="STarjetas_Verificacion.php">
         <label>Criterio </label>
         <input type="text" id="Criterio" name="Criterio">
 

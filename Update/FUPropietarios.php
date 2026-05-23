@@ -7,7 +7,7 @@ proteger(["admin"]);
     include ('../Controlador.php');
     $sql = "SELECT * FROM propietarios WHERE Id='$Id';";
     $Con = Conectar();
-    validarExistenciaID($Con, 'propietarios', 'Id', $_GET['Id'], 'Propietarios');
+    validarExistenciaID($Con, 'propietarios', $_GET['Id'], 'Propietarios');
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 
@@ -26,7 +26,6 @@ proteger(["admin"]);
         <label> Nombre</label>
         <input type="text" id= "Nombre" name="Nombre" value="<?php print($Fila[1]); ?>" required>
         <br>
-
 
         <label> Apellido_paterno</label>
         <input type="text" id= "Apellido_paterno" name="Apellido_paterno" value="<?php print($Fila[2]); ?>" required>

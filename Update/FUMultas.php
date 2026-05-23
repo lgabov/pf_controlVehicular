@@ -5,9 +5,9 @@ proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
 validarExistenciaID($Con, 'multas', $_GET['Id'], 'Multas');
-    $Folio = $_GET['Folio'];
+    $Id = $_GET['Id'];
 
-    $sql = "SELECT * FROM multas WHERE Folio='$Folio';";
+    $sql = "SELECT * FROM multas WHERE Folio='$Id';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
@@ -65,6 +65,10 @@ validarExistenciaID($Con, 'multas', $_GET['Id'], 'Multas');
 
         <label> Id_pago</label>
         <input type="number" id= "Id_pago" name="Id_pago" value="<?php echo $Fila[10]; ?>" required>
+        <br>
+
+        <label> Id propietario</label>
+        <input type="number" id= "Id_propietario" name="Id_propietario" value="<?php echo $Fila[11]; ?>" required>
         <br>
 
         <input type="submit">
