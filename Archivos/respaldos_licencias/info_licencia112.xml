@@ -1,0 +1,15 @@
+<numero_licencia>112</numero_licencia>
+<nombre>David</nombre>
+<apellido_paterno>Soto</apellido_paterno>
+<fecha_nacimiento>2026-05-06</fecha_nacimiento>
+<fecha_expedicion>2026-05-14</fecha_expedicion>
+<fecha_validez>2026-05-26</fecha_validez>
+<antiguedad>2026-05-29</antiguedad>
+<localidad>Queretaro</localidad>
+<municipio>Huimilpan</municipio>
+<entidad_federativa>Queretaro</entidad_federativa>
+<grupo_sanguineo>B+</grupo_sanguineo>
+<donador_organos>No</donador_organos>
+<foto>../Public/1778971983_foto.jpg</foto>
+<firma>../Public/1778971983_firma.png</firma>
+</licencia>

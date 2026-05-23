@@ -6,7 +6,6 @@ function scriptActualizar($nombre, $archivo, $campoId)
     function actualizar_'.$nombre.'(){
         let id = prompt("Ingresa el ID de '.$nombre.':");
         if(id != null && id.trim() != ""){
-            // CORRECCIÓN DE RUTA: Subimos un nivel para salir de Auth/ y luego entramos a Update/
             window.location.href = "../Update/'.$archivo.'.php?Id=" + encodeURIComponent(id) + "&campoId='.$campoId.'";
         }
     }

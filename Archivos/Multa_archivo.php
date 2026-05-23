@@ -11,7 +11,7 @@ error_reporting(E_ALL);
     $MultaId = $_GET['MultaId'];
     $Con = Conectar();
     //$Numero_licencia=$_GET['Numero_licencia'];
-    $sql = "SELECT * FROM v_info_multas WHERE Folio = $MultaId";
+    $sql = "SELECT * FROM vista_multas WHERE Folio = $MultaId";
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 
@@ -78,9 +78,9 @@ $pdf->SetXY(25, 65);
 $pdf->MultiCell(30,4,"$Fila[4]");
 
 //Imagenes
-//$pdf->Image('system_sex.png', 21.3, 70, 35, 15);
+$pdf->Image('../public/Imagenes_archivos/banorte.png', 21.3, 70, 35, 15);
 
-//$pdf->Image('escudo.png', 90, 1, 10, 12);
+$pdf->Image('../public/Imagenes_archivos/escudo.png', 90, 1, 10, 12);
 
 
 

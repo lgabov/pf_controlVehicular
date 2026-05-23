@@ -8,7 +8,7 @@ validarExistenciaID($Con, 'pagos','Linea_captura', $_GET['Id'], 'Pagos');
 
     $Linea_captura = $_GET['Id'];
 
-    $sql = "SELECT * FROM Pagos WHERE Linea_captura='$Linea_captura';";
+    $sql = "SELECT * FROM Pagos WHERE Linea_captura='$Id';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);

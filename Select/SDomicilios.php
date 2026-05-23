@@ -35,8 +35,10 @@ proteger(["admin", "user"]);
             <td>$Fila[2]</td>
             <td>$Fila[3]</td>
         </tr>
-        </table>");
+        ");
     };
+    print("</table>");
+
     print("Numero de filas encontradas: $NumFilas");
 
 

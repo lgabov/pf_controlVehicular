@@ -6,10 +6,17 @@ error_reporting(E_ALL);
 
 //*------------------------------------------------
 include("../Controlador.php");
+$Numero_licencia = $_GET['Numero_licencia'];
 $Con = Conectar();
-$sql = "SELECT * FROM vista_conductores WHERE Numero_licencia = 100;";
+$sql = "SELECT * FROM vista_conductores WHERE Numero_licencia = '$Numero_licencia';";
 $ResultSet = Ejecutar($Con, $sql);
 $Fila = mysqli_fetch_assoc($ResultSet);
+
+if(!$Fila){
+    die("No se encontró ningún conductor con el número de licencia proporcionado.");
+}
+
+//print_r($Fila);
 
 Desconectar($Con);
 //*------------------------------------------------
@@ -26,7 +33,7 @@ $pdf->SetAutoPageBreak(false);
 //Encabezado
 $pdf->SetFont('Arial','',3);
 
-//$pdf->Image('../Public/escudo.png', 5, 6, 7, 7);
+$pdf->Image('../public/Imagenes_archivos/escudo.png', 5, 5, 8, 10);
 
 $pdf->SetXY(14, 5);
 $pdf->MultiCell(30,2,'Estados Unidos Mexicanos',0,'L');
@@ -42,7 +49,7 @@ $pdf->SetXY(14, 12);
 $pdf->MultiCell(30,3,'Licencia para conducir',0,'L');
 
 //Foto
-//$pdf->Image($Fila['foto'], 30, 18, 20, 22);
+$pdf->Image($Fila['foto'], 30, 18, 20, 22);
 
 $pdf->SetXY(15, 29);
 $pdf->SetFont('Arial','',3);
@@ -222,18 +229,23 @@ $pdf->SetFont('Arial', 'B', 5);
 $pdf->MultiCell(30,2.5,'SECRETARIA DE SEGURIDAD CIUDADANA', 0,'L');
 
 //Respaldo de archivo XML
-$archivo = __DIR__ . '/respaldos_licencias/info_licencia101.xml';
+$archivo = __DIR__ . '/respaldos_licencias/info_licencia' .  $Fila['Numero_licencia'] . '.xml';
 $Manejador = fopen($archivo, "w+");
 
-fputs($Manejador, "<licencia>");
-fputs($Manejador, "<domicilio>$Fila[0]</domicilio>\n");
-fputs($Manejador, "<conductor>$Fila[1]</conductor>\n");
-fputs($Manejador, "<RFC>$Fila[2]</RFC>\n");
-fputs($Manejador, "<fecha>$Fila[3]</fecha>\n");
-fputs($Manejador, "<folio>$Fila[4]</folio>\n");
-fputs($Manejador, "<fecha_limite>$Fila[5]</fecha_limite>\n");
-fputs($Manejador, "<importe>$Fila[6]</importe>\n");
-fputs($Manejador, "<fundamentos>$Fila[7]</fundamentos>\n");
+fputs($Manejador, "<numero_licencia>" . $Fila['Numero_licencia'] . "</numero_licencia>\n");
+fputs($Manejador, "<nombre>" . (isset($Fila['nombre']) ? $Fila['nombre'] : $Fila['Nombre']) . "</nombre>\n");
+fputs($Manejador, "<apellido_paterno>$Fila[Apellido_paterno]</apellido_paterno>\n");
+fputs($Manejador, "<fecha_nacimiento>$Fila[Fecha_nacimiento]</fecha_nacimiento>\n");
+fputs($Manejador, "<fecha_expedicion>$Fila[Fecha_expedicion]</fecha_expedicion>\n");
+fputs($Manejador, "<fecha_validez>$Fila[Fecha_validez]</fecha_validez>\n");
+fputs($Manejador, "<antiguedad>$Fila[Antiguedad]</antiguedad>\n");
+fputs($Manejador, "<localidad>$Fila[Localidad]</localidad>\n");
+fputs($Manejador, "<municipio>$Fila[Municipio]</municipio>\n");
+fputs($Manejador, "<entidad_federativa>$Fila[Entidad_federativa]</entidad_federativa>\n");
+fputs($Manejador, "<grupo_sanguineo>$Fila[Grupo_sanguineo]</grupo_sanguineo>\n");
+fputs($Manejador, "<donador_organos>$Fila[Donador_organos]</donador_organos>\n");
+fputs($Manejador, "<foto>$Fila[foto]</foto>\n");
+fputs($Manejador, "<firma>$Fila[firma]</firma>\n");
 
 fputs($Manejador, "</licencia>");
 fflush($Manejador); 

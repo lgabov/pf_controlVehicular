@@ -19,7 +19,6 @@ proteger(["admin", "user"]);
 
     print("<table border='1'>
         <tr>
-            <th>Id</th>
             <th>Linea_captura</th>
             <th>Fecha_limite</th>
             <th>Importe</th>
@@ -34,10 +33,10 @@ proteger(["admin", "user"]);
             <td>$Fila[1]</td>
             <td>$Fila[2]</td>
             <td>$Fila[3]</td>
-            <td>$Fila[4]</td>
         </tr>
-        </table>");
+        ");
     };
+    print("</table>");
 
     print("Numero de filas encontradas: $NumFilas");
 

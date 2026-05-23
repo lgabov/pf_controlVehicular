@@ -7,7 +7,7 @@ $Con = Conectar();
 validarExistenciaID($Con, 'tarjetas_verificacion','Folio', $_GET['Id'], 'Tarjetas de Verificación');
     $Folio = $_GET['Id'];
 
-    $sql = "SELECT * FROM tarjetas_verificacion WHERE Folio='$Folio';";
+    $sql = "SELECT * FROM tarjetas_verificacion WHERE Folio='$Id';";
     $Con = Conectar();
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);

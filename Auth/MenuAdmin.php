@@ -7,9 +7,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 include_once("../FuncionesMenu.php");
 
-print("Menu de Administrador");
-print("<br>");
-
 scriptActualizar("Centros", "FUCentros_Verificacion", "Numero_centro");
 scriptActualizar("Conductores", "FUConductores", "Numero_licencia");
 scriptActualizar("Domicilios", "FUDomicilios", "Id");
@@ -30,72 +27,18 @@ inicializarDetectorErrores();
 <head>
     <meta charset="UTF-8">
     <title>Menu Usuarios</title>
-    <style type="text/css">
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-        }
-        
-        #header {
-            margin: auto;
-            width: 100%; 
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        ul, ol {
-            list-style: none;
-        }
-        
-        .nav > li {
-            float: left;
-        }
-        
-        .nav li a {
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 12px;
-            display: block;
-        }
-        
-        .nav li a:hover {
-            background-color: #434343;
-        }
-        
-        .nav li ul {
-            display: none;
-            position: absolute;
-            min-width: 140px;
-            z-index: 999; 
-        }
-        
-        .nav li:hover > ul {
-            display: block;
-        }
-        
-        .nav li ul li {
-            position: relative;
-        }
-        
-        .nav li ul li ul {
-            right: -140px;
-            top: 0px;
-        }
-
-       
-        .nav::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
+    <link rel="stylesheet" href="../main.css">
 </head>
+<header>
+    <h1>Menu Admin</h1>
+    <div class="nav">
+    <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
+    </div>
+</header>
+
 <body>
-    <div id="header">
-        <ul class="nav">
-            <li><a href="">Inicio</a></li>
-            
+    <div class="nav-actions">
+        <ul class="nav">            
             <li><a href="">Centros de Verificación</a>
                 <ul>
                     <li><a href="../Select/FSCentros_Verificacion.php">Ver Centros</a></li>
@@ -194,8 +137,6 @@ inicializarDetectorErrores();
                     <li><a href="../Delete/FDVehiculos.php">Eliminar Vehículos</a></li>
                 </ul>
             </li>
-            
-            <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
         </ul>
     </div>
 </body>

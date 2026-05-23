@@ -16,21 +16,27 @@ proteger(["admin"]);
     print("Entidad_federativa= " . $Entidad_federativa . "<br>");
     */
     
-    //Instruccion sql
-    $sql = "INSERT INTO Domicilios (Id, Localidad, Municipio, Entidad_federativa)
-    VALUES ('$Id', '$Localidad', '$Municipio', '$Entidad_federativa');";
-    //print("<br>".$sql);
 
     //Ejecutar la instrucción al SMBD
     include("../Controlador.php");
     $Con = Conectar();
-    $ResultSet = Ejecutar($Con, $sql);
+    
+    //Instruccion sql
+    $sql = "INSERT INTO Domicilios (Id, Localidad, Municipio, Entidad_federativa)
+    VALUES ('$Id', '$Localidad', '$Municipio', '$Entidad_federativa');";
+    try {
+        $ResultSet = Ejecutar($Con, $sql);
+        print("Registro insertado correctamente.");
 
-    if($ResultSet == 1){
-        print("1 Registro insertado");
-    } else {
-        print($ResultSet);
+    } catch (mysqli_sql_exception $e) {
+        
+        if ($e->getCode() == 1062) {
+            print("Error: El ID asignado ya se encuentra registrado en el sistema.");
+        } else {
+            print("Error interno en la base de datos: " . $e->getMessage());
+        }
+    } finally {
+        Desconectar($Con);
     }
 
-    Desconectar($Con);
 ?>

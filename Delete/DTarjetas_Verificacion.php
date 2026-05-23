@@ -5,20 +5,23 @@ proteger(["admin"]);
 $Folio = $_POST["Folio"];
 
 $sql = "DELETE FROM Tarjetas_Verificacion WHERE Folio = '$Folio';";
-print($sql);
 
 include("../Controlador.php");
 $Con = Conectar();
-$ResultSet = Ejecutar($Con, $sql);
-$FilasAfectadas = mysqli_affected_rows($Con);
+try {
+    $ResultSet = Ejecutar($Con, $sql);
 
-if($FilasAfectadas == 1) {
-    print("1 Registro eliminado");
-} else {
-    print("0 registros eliminados");
+    if (mysqli_affected_rows($Con) > 0) {
+        print("Registro eliminado con éxito.");
+    } else {
+        print("Aviso: No se encontró ningún registro con ese ID para eliminar.");
+    }
+
+} catch (mysqli_sql_exception $e) {
+        print("Error interno en la base de datos: " . $e->getMessage());
+} finally {
+    Desconectar($Con);
 }
-
-Desconectar($Con);
 
 
 ?>
