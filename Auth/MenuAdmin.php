@@ -26,17 +26,17 @@ inicializarDetectorErrores();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Menu Usuarios</title>
+    <title>Menu Administrador</title>
     <link rel="stylesheet" href="../main.css">
 </head>
-<header>
-    <h1>Menu Admin</h1>
-    <div class="nav">
-    <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
-    </div>
-</header>
 
 <body>
+    <header>
+        <h1>Menu de Administrador</h1>
+        <div class="nav">
+        <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
+        </div>
+    </header>
     <div class="nav-actions">
         <ul class="nav">            
             <li><a href="">Centros de Verificación</a>

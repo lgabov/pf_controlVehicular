@@ -236,9 +236,210 @@ ul, ol {
   clear: both;
 }
 
+.input {
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: .3s ease;
+ }
+ 
+ .input::placeholder {
+  color: #9e9ea7;
+ }
+ 
+ .input:focus, input:hover {
+  outline: none;
+  border-color: rgba(68, 202, 150, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(76, 234, 216, 0.1);
+ }
+
+ 
+
+
+ .select-form {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  margin: 2rem auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  min-height: 350px;
+  gap: 10px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.select-form > label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.select-form .input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  color: #1d2939;
+  background-color: #f9fafb;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.select-form .input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* 4. ALINEACIÓN EN LÍNEA PARA LOS RADIOS Y SUS TEXTOS */
+/* Forzamos a los inputs de tipo radio a comportarse como elementos en línea */
+.select-form input[type="radio"] {
+  display: inline-block;
+  accent-color: #2563eb;
+  width: 18px;
+  height: 18px;
+  margin: 0 4px 0 12px; /* Margen a la izquierda para separarlos entre sí */
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Le damos estilo al texto plano que acompaña a los radios y nos aseguramos de que no salte de línea */
+.select-form, 
+.select-form input[type="radio"] + text {
+  display: inline;
+  font-size: 15px;
+  color: #475467;
+  vertical-align: middle;
+  white-space: nowrap; /* Evita que el texto salte de línea individualmente */
+}
+
+/* Ajuste específico para el primer radio para que no esté tan pegado al borde */
+.select-form input[type="radio"]:first-of-type {
+  margin-left: 0px;
+}
+
+.select-form .radio-group {
+  display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.select-form .radio-group span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.select-form .form-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem; 
+}
+
+
+
+
+.table-container {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1d2939;
+  margin: 0;
+}
+
+.table-count {
+  font-size: 0.875rem;
+  color: #667085;
+  background: #f2f4f7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead tr {
+  background-color: #f9fafb;
+}
+
+.data-table th {
+  padding: 0.875rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #344054;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.9375rem;
+  color: #344054;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+
+
+
+
 
 /* ==========================================================================
-   5. UTILITIES (Clases de ayuda rápida)
+   UTILITIES (Clases de ayuda rápida)
    ========================================================================== */
 .text-center { text-align: center; }
 .text-muted { color: var(--text-muted); }

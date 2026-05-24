@@ -8,66 +8,20 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
 
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Menu Usuarios</title>
-    <style type="text/css">
-        
-        * {
-            margin:0px;
-            padding:0px;
-        }
-        
-        #header {
-            margin:auto;
-            width:700vh;
-            font-family:Arial, Helvetica, sans-serif;
-            
-        }
-        
-        ul, ol {
-            list-style:none;
-        }
-        
-        .nav > li {
-            float:left;
-        }
-        
-        .nav li a {
-            background-color:#000;
-            color:#fff;
-            text-decoration:none;
-            padding:10px 12px;
-            display:block;
-        }
-        
-        .nav li a:hover {
-            background-color:#434343;
-        }
-        
-        .nav li ul {
-            display:none;
-            position:absolute;
-            min-width:140px;
-        }
-        
-        .nav li:hover > ul {
-            display:block;
-        }
-        
-        .nav li ul li {
-            position:relative;
-        }
-        
-        .nav li ul li ul {
-            right:-140px;
-            top:0px;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="../main.css">
 </head>
+
 <body>
-    <div id="header">
+    <header>
+        <h1>Menu de Usuario</h1>
+        <div class="nav">
+        <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
+        </div>
+    </header>
+    <div class="nav-actions">
         <ul class="nav">
-            <li><a href="">Inicio</a></li>
             <li><a href="">Centros de Verificación</a>
                 <ul>
                     <li><a href="../Select/FSCentros_Verificacion.php">Ver Centros</a></li>
@@ -123,7 +77,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
                     <li><a href="../Select/FSVehiculos.php">Ver Vehículos</a></li>
                 </ul>
             </li>
-            <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
         </ul>
     </div>
 </body>

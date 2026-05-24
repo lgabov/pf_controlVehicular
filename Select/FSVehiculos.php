@@ -2,27 +2,39 @@
 require_once "../Auth/auth.php";
 proteger(["admin", "user"]);
 ?>
-<html>
-    <form method="get" action="SVehiculos.php">
-        <label>Criterio </label>
-        <input type="text" id="Criterio" name="Criterio">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Vehiculos</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="get" action="SVehiculos.php" class="select-form">
+        <label>Criterio</label>
+        <input class="input" type="text" id="Criterio" name="Criterio">
 
-        <br>
-        <label>Atributo </label>
-        <input type="radio" id="Atributo" name="Atributo" value="Id"> Id
-        <input type="radio" id="Atributo" name="Atributo" value="Año"> Anio
-        <input type="radio" id="Atributo" name="Atributo" value="Placa"> Placa
-        <input type="radio" id="Atributo" name="Atributo" value="Numero_serie"> Numero de serie
-        <input type="radio" id="Atributo" name="Atributo" value="Marca"> Marca
-        <input type="radio" id="Atributo" name="Atributo" value="Origen"> Origen
-        <input type="radio" id="Atributo" name="Atributo" value="Color"> Color
-        <input type="radio" id="Atributo" name="Atributo" value="Cilindraje"> Cilindraje
-        <input type="radio" id="Atributo" name="Atributo" value="Capacidad"> Capacidad
-        <input type="radio" id="Atributo" name="Atributo" value="Puertas"> Puertas
-        <input type="radio" id="Atributo" name="Atributo" value="Asientos"> Asientos
-        <input type="radio" id="Atributo" name="Atributo" value="Transmision"> Transmision
-        <input type="radio" id="Atributo" name="Atributo" value="Clave_vehicular"> Clave vehicular
-        <input type="radio" id="Atributo" name="Atributo" value="Tipo_combustible"> Tipo de combustible
-        <input type="submit">
+        <label>Atributo</label>
+        <div class="radio-group">
+            <span><input type="radio" name="Atributo" value="Id"> Id</span>
+            <span><input type="radio" name="Atributo" value="Año"> Anio</span>
+            <span><input type="radio" name="Atributo" value="Placa"> Placa</span>
+            <span><input type="radio" name="Atributo" value="Numero_serie"> Numero de Serie</span>
+            <span><input type="radio" name="Atributo" value="Marca"> Marca</span>
+            <span><input type="radio" name="Atributo" value="Origen"> Origen</span>
+            <span><input type="radio" name="Atributo" value="Color"> Color</span>
+            <span><input type="radio" name="Atributo" value="Cilindraje"> Cilindraje</span>
+            <span><input type="radio" name="Atributo" value="Capacidad"> Capacidad</span>
+            <span><input type="radio" name="Atributo" value="Puertas"> Puertas</span>
+            <span><input type="radio" name="Atributo" value="Asientos"> Asientos</span>
+            <span><input type="radio" name="Atributo" value="Transmision"> Transmision</span>
+            <span><input type="radio" name="Atributo" value="Clave_vehicular"> Clave Vehicular</span>
+            <span><input type="radio" name="Atributo" value="Tipo_combustible"> Tipo de Combustible</span>
+        </div>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Buscar">
+        </div>
     </form>
+</body>
 </html>

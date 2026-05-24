@@ -1,19 +1,30 @@
-
 <?php
 require_once "../Auth/auth.php";
 proteger(["admin", "user"]);
 ?>
-<html>
-    <form method="get" action="SOficiales.php">
-        <label>Criterio </label>
-        <input type="text" id="Criterio" name="Criterio">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Oficiales</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="get" action="SOficiales.php" class="select-form">
+        <label>Criterio</label>
+        <input class="input" type="text" id="Criterio" name="Criterio">
 
-        <br>
-        <label>Atributo </label>
-        <input type="radio" id="Atributo" name="Atributo" value="Id"> Id
-        <input type="radio" id="Atributo" name="Atributo" value="Nombre"> Nombre
-        <input type="radio" id="Atributo" name="Atributo" value="Apellido"> Apellido
-        <input type="radio" id="Atributo" name="Atributo" value="Grupo"> Grupo
-        <input type="submit">
+        <label>Atributo</label>
+        <div class="radio-group">
+            <span><input type="radio" name="Atributo" value="Id"> Id</span>
+            <span><input type="radio" name="Atributo" value="Nombre"> Nombre</span>
+            <span><input type="radio" name="Atributo" value="Apellido"> Apellido</span>
+            <span><input type="radio" name="Atributo" value="Grupo"> Grupo</span>
+        </div>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Buscar">
+        </div>
     </form>
+</body>
 </html>
