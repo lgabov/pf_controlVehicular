@@ -4,9 +4,9 @@ require_once "../Auth/auth.php";
 proteger(["admin"]);
 include ('../Controlador.php');
 $Con = Conectar();
-validarExistenciaID($Con, 'centros_verificacion', $_GET['Id'], 'Centros de Verificación');
-    $Id = $_GET['Id'];
-    $sql = "SELECT * FROM centros_verificacion WHERE Numero_centro='$Id';";
+validarExistenciaID($Con, 'centros_verificacion','Numero_centro', $_GET['Id'], 'Centros de Verificación');
+    $Numero_centro = $_GET['Id'];
+    $sql = "SELECT * FROM centros_verificacion WHERE Numero_centro='$Numero_centro';";
     $ResultSet = Ejecutar($Con, $sql);
     $Fila = mysqli_fetch_row($ResultSet);
 
