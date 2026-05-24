@@ -162,6 +162,18 @@ ul, ol {
   background-color: var(--primary-hover);
 }
 
+.btn-danger {
+  background-color: #cf1818;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #9f0b0b;
+}
+
+
+
+
 .nav-actions {
   width: 95%;
   height: auto;
@@ -312,8 +324,6 @@ ul, ol {
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
-/* 4. ALINEACIÓN EN LÍNEA PARA LOS RADIOS Y SUS TEXTOS */
-/* Forzamos a los inputs de tipo radio a comportarse como elementos en línea */
 .select-form input[type="radio"] {
   display: inline-block;
   accent-color: #2563eb;
@@ -324,7 +334,6 @@ ul, ol {
   cursor: pointer;
 }
 
-/* Le damos estilo al texto plano que acompaña a los radios y nos aseguramos de que no salte de línea */
 .select-form, 
 .select-form input[type="radio"] + text {
   display: inline;
@@ -334,7 +343,6 @@ ul, ol {
   white-space: nowrap; /* Evita que el texto salte de línea individualmente */
 }
 
-/* Ajuste específico para el primer radio para que no esté tan pegado al borde */
 .select-form input[type="radio"]:first-of-type {
   margin-left: 0px;
 }
@@ -354,7 +362,7 @@ ul, ol {
   white-space: nowrap;
 }
 
-.select-form .form-footer {
+.form-footer {
   margin-top: auto;
   display: flex;
   justify-content: center;
@@ -366,12 +374,12 @@ ul, ol {
 
 .table-container {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 2rem auto;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .table-header {
@@ -437,6 +445,111 @@ ul, ol {
 
 
 
+.insert-form {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  margin: 2rem auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insert-form h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1d2939;
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.insert-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.75rem;
+  display: block;
+}
+
+.insert-form .input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  color: #1d2939;
+  background-color: #f9fafb;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.insert-form .input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.insert-form .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.insert-form .radio-group span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  font-size: 15px;
+  color: #475467;
+}
+
+.insert-form input[type="file"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 15px;
+  color: #475467;
+  background-color: #f9fafb;
+  border: 1px dashed #d0d5dd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.insert-form input[type="file"]:hover {
+  border-color: #2563eb;
+  background-color: #ffffff;
+}
+
+.insert-form input[type="file"]::file-selector-button {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.insert-form input[type="file"]::file-selector-button:hover {
+  background-color: #1d4ed8;
+}
 
 /* ==========================================================================
    UTILITIES (Clases de ayuda rápida)

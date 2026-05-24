@@ -26,7 +26,6 @@ proteger(["admin", "user"]);
     <div class="table-container">
         <div class="table-header">
             <h2>Centros de Verificacion</h2>
-            <br>
             <span class="table-count"><?= $NumFilas ?> resultado(s) encontrado(s)</span>
         </div>
 

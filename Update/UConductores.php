@@ -1,4 +1,4 @@
-php<?php
+<?php
 require_once "../Auth/auth.php";
 
 proteger(["admin"]);
@@ -71,14 +71,23 @@ proteger(["admin"]);
                 firma = '$firma'
             WHERE Numero_licencia = '$Licencia_Original';";
 
-    $ResultSet = Ejecutar($Con, $sql);
+    try {
+        $ResultSet = Ejecutar($Con, $sql);
+        if (mysqli_affected_rows($Con) > 0) {
+            print("Registro actualizado con éxito.");
+        } else {
+            print("Registro procesado (sin cambios realizados o ID no encontrado).");
+        }
 
-    if($ResultSet == 1){
-        echo "Registro actualizado con éxito";
-    } else {
-        echo "Error al actualizar el registro: " . $ResultSet;
+    } catch (mysqli_sql_exception $e) {
+
+        if ($e->getCode() == 1062) {
+            print("Error: No puedes usar ese ID porque ya pertenece a otro registro.");
+        } else {
+            print("Error interno en la base de datos: " . $e->getMessage());
+        }
+    } finally {
+        Desconectar($Con);
     }
-
-    Desconectar($Con);
 ?>
 

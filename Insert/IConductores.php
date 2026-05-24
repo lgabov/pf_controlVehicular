@@ -47,13 +47,16 @@ ini_set('display_errors', 1);
 
     include("../Controlador.php");
     $Con = Conectar();
-    $ResultSet = Ejecutar($Con, $sql);
-
-    if($ResultSet == 1){
-        print("1 Registro insertado con éxito ");
-    } else {
-        print($ResultSet);
+    try {
+        $ResultSet = Ejecutar($Con, $sql);
+        print("Registro insertado correctamente.");
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {
+            print("Error: El ID asignado ya se encuentra registrado en el sistema.");
+        } else {
+            print("Error interno en la base de datos: " . $e->getMessage());
+        }
+    } finally {
+        Desconectar($Con);
     }
-
-    Desconectar($Con);
 ?>

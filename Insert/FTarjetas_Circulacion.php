@@ -3,58 +3,59 @@ require_once "../Auth/auth.php";
 
 proteger(["admin"]);
 ?>
-<html>
-    <label>Tarjetas_Circulacion</label>
-    <br>
-    <form method="get" action="ITarjetas_Circulacion.php">
-        <label> Folio</label>
-        <input type="number" id= "Folio" name="Folio" required>
-        <br>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Tarjeta de Circulacion</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="get" action="ITarjetas_Circulacion.php" class="insert-form">
+        <h2>Tarjetas de Circulacion</h2>
 
-        <label> Vigencia</label>
-        <input type="date" id= "Vigencia" name="Vigencia" required>
-        <br>
-        
-        <label> Oficina</label>
-        <select id="Oficina" name="Oficina" required>
+        <label>Folio</label>
+        <input class="input" type="number" id="Folio" name="Folio" required>
+
+        <label>Vigencia</label>
+        <input class="input" type="date" id="Vigencia" name="Vigencia" required>
+
+        <label>Oficina</label>
+        <select class="input" id="Oficina" name="Oficina" required>
             <option value="Oficina1">Oficina 1</option>
             <option value="Oficina2">Oficina 2</option>
             <option value="Oficina3">Oficina 3</option>
         </select>
-        <br>
 
-        <label> Operacion</label>
-        <input type="text" id= "Operacion" name="Operacion" required>
-        <br>
+        <label>Operacion</label>
+        <input class="input" type="text" id="Operacion" name="Operacion" required>
 
-        <label> Movimiento</label>
-        <select name="Movimiento" id="Movimiento" required>
-            <option value="alta">Alta de vehiculo</option>
-            <option value="baja">Baja de vehiculo</option>
-            <option value="cambio_propietario">Cambio de propietario</option>
-            <option value="reposicion">Reposicion por robo o extravio</option>
-            <option value="renovacion">Renovacion de tarjeta de circulacion</option>
-            <option value="cambio_domicilio">Cambio de domicilio</option>
-             <option value="correccion_datos">Correccion de datos</option>
+        <label>Movimiento</label>
+        <select class="input" name="Movimiento" id="Movimiento" required>
+            <option value="alta">Alta de Vehiculo</option>
+            <option value="baja">Baja de Vehiculo</option>
+            <option value="cambio_propietario">Cambio de Propietario</option>
+            <option value="reposicion">Reposicion por Robo o Extravio</option>
+            <option value="renovacion">Renovacion de Tarjeta de Circulacion</option>
+            <option value="cambio_domicilio">Cambio de Domicilio</option>
+            <option value="correccion_datos">Correccion de Datos</option>
             <option value="revalidacion">Revalidacion</option>
-             <option value="emplacamiento">Emplacamiento</option>
-            <option value="canje_placas">Canje de placas</option>
-        </select>        
-        <br>
+            <option value="emplacamiento">Emplacamiento</option>
+            <option value="canje_placas">Canje de Placas</option>
+        </select>
 
-        <label> Id_vehiculo</label>
-        <input type="number" id= "Id_vehiculo" name="Id_vehiculo" required>
-        <br>
-        
-        <label> Id_propietario</label>
-        <input type="number" id= "Id_propietario" name="Id_propietario" required>
-        <br>
+        <label>Id Vehiculo</label>
+        <input class="input" type="number" id="Id_vehiculo" name="Id_vehiculo" required>
 
-        <label> Id_pago</label>
-        <input type="number" id= "Id_pago" name="Id_pago" required>
-        <br>
-        
-        <input type="submit">
+        <label>Id Propietario</label>
+        <input class="input" type="number" id="Id_propietario" name="Id_propietario" required>
+
+        <label>Id Pago</label>
+        <input class="input" type="number" id="Id_pago" name="Id_pago" required>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Insertar">
+        </div>
     </form>
-
+</body>
 </html>

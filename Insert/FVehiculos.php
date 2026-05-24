@@ -3,49 +3,46 @@ require_once "../Auth/auth.php";
 
 proteger(["admin"]);
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Vehiculo</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="post" action="IVehiculos.php" class="insert-form">
+        <h2>Vehiculos</h2>
 
-    <label>Vehiculos</label>
-    <br>
-    <form method="post" action="IVehiculos.php" >
-        <label> Id</label>
-        <input type="number" id= "Id" name="Id" required>
-        <br>
+        <label>Id</label>
+        <input class="input" type="number" id="Id" name="Id" required>
 
-        <label> Anio</label>
-        <input type="number" id= "Año" name="Año" required>
-        <br>
-        
-        <label> Placa </label>
-        <input type="text" id= "Placa" name="Placa" required>
-        <br>
-        
-        <label> Marca</label>
-        <input type="text" id= "Marca" name="Marca" required>
-        <br>
+        <label>Anio</label>
+        <input class="input" type="number" id="Año" name="Año" required>
 
-        <label> Numero_serie</label>
-        <input type="text" id= "Numero_serie" name="Numero_serie" required>
-        <br>
+        <label>Placa</label>
+        <input class="input" type="text" id="Placa" name="Placa" required>
 
-        <label> Origen</label>
-        <input type="text" id= "Origen" name="Origen" required>
-        <br>
+        <label>Marca</label>
+        <input class="input" type="text" id="Marca" name="Marca" required>
 
-        <label> Color</label>
-        <input type="text" id= "Color" name="Color" required>
-        <br>
+        <label>Numero Serie</label>
+        <input class="input" type="text" id="Numero_serie" name="Numero_serie" required>
 
-        <label> Cilindraje</label>
-        <input type="number" id= "Cilindraje" name="Cilindraje" required>
-        <br>
+        <label>Origen</label>
+        <input class="input" type="text" id="Origen" name="Origen" required>
 
-        <label> Capacidad</label>
-        <input type="number" id= "Capacidad" name="Capacidad" required>
-        <br>
+        <label>Color</label>
+        <input class="input" type="text" id="Color" name="Color" required>
 
-        <label> Puertas</label>
-        <select id="Puertas" name="Puertas" required>
+        <label>Cilindraje</label>
+        <input class="input" type="number" id="Cilindraje" name="Cilindraje" required>
+
+        <label>Capacidad</label>
+        <input class="input" type="number" id="Capacidad" name="Capacidad" required>
+
+        <label>Puertas</label>
+        <select class="input" id="Puertas" name="Puertas" required>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -53,31 +50,28 @@ proteger(["admin"]);
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <br>
-        
-        <label> Asientos</label>
-        <input type="number" id= "Asientos" name="Asientos" required>
-        <br>
 
-        <label> Transmision</label>
-        <input type="text" id= "Transmision" name="Transmision" required>
-        <br>
+        <label>Asientos</label>
+        <input class="input" type="number" id="Asientos" name="Asientos" required>
 
-        <label> Clave_vehicular</label>
-        <input type="text" id= "Clave_vehicular" name="Clave_vehicular" maxlength="7" required>
-        <br>
+        <label>Transmision</label>
+        <input class="input" type="text" id="Transmision" name="Transmision" required>
 
-        <label> Tipo_combustible</label>
-        <select id="Tipo_combustible" name="Tipo_combustible" required>
+        <label>Clave Vehicular</label>
+        <input class="input" type="text" id="Clave_vehicular" name="Clave_vehicular" maxlength="7" required>
+
+        <label>Tipo Combustible</label>
+        <select class="input" id="Tipo_combustible" name="Tipo_combustible" required>
             <option value="Gasolina">Gasolina</option>
             <option value="Diesel">Diesel</option>
             <option value="Electrico">Electrico</option>
             <option value="Hibrido">Hibrido</option>
             <option value="No especificado">Otro</option>
         </select>
-        <br>
 
-        <input type="submit">
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Insertar">
+        </div>
     </form>
-
+</body>
 </html>

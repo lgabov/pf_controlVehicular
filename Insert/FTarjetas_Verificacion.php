@@ -3,62 +3,61 @@ require_once "../Auth/auth.php";
 
 proteger(["admin"]);
 ?>
-<html>
-    <label>Tarjetas_Verificacion</label>
-    <br>
-    <form method="post" action="ITarjetas_Verificacion.php">
-        <label> Folio</label>
-        <input type="number" id= "Folio" name="Folio" required>
-        <br>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Tarjeta de Verificacion</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="post" action="ITarjetas_Verificacion.php" class="insert-form">
+        <h2>Tarjetas de Verificacion</h2>
 
-        <label> Fecha_expedicion</label>
-        <input type="date" id= "Fecha_expedicion" name="Fecha_expedicion" required>
-        <br>
+        <label>Folio</label>
+        <input class="input" type="number" id="Folio" name="Folio" required>
 
-        <label> Tipo_servicio</label>
-        <select name="Tipo_servicio" id="Tipo_servicio" required>
-            <option value="verificacion_normal">Verificacion normal</option>
-            <option value="verificacion_extemporanea">Verificacion extemporanea</option>
-            <option value="verificacion_voluntaria">Verificacion voluntaria</option>
-            <option value="reposicion_certificado">Reposicion de certificado</option>
-            <option value="reposicion_holograma">Reposicion de holograma</option>
-            <option value="cambio_holograma">Cambio de holograma</option>
-            <option value="verificacion_doble_cero">Verificacion doble cero (00)</option>
-            <option value="verificacion_cero">Verificacion cero (0)</option>
-            <option value="verificacion_uno">Verificacion uno (1)</option>
-            <option value="verificacion_dos">Verificacion dos (2)</option>
+        <label>Fecha Expedicion</label>
+        <input class="input" type="date" id="Fecha_expedicion" name="Fecha_expedicion" required>
+
+        <label>Tipo Servicio</label>
+        <select class="input" name="Tipo_servicio" id="Tipo_servicio" required>
+            <option value="verificacion_normal">Verificacion Normal</option>
+            <option value="verificacion_extemporanea">Verificacion Extemporanea</option>
+            <option value="verificacion_voluntaria">Verificacion Voluntaria</option>
+            <option value="reposicion_certificado">Reposicion de Certificado</option>
+            <option value="reposicion_holograma">Reposicion de Holograma</option>
+            <option value="cambio_holograma">Cambio de Holograma</option>
+            <option value="verificacion_doble_cero">Verificacion Doble Cero (00)</option>
+            <option value="verificacion_cero">Verificacion Cero (0)</option>
+            <option value="verificacion_uno">Verificacion Uno (1)</option>
+            <option value="verificacion_dos">Verificacion Dos (2)</option>
         </select>
-        <br>
 
-        <label> Motivo</label>
-        <input type="text" id= "Motivo" name="Motivo" required>
-        <br>
+        <label>Motivo</label>
+        <input class="input" type="text" id="Motivo" name="Motivo" required>
 
-        <label> Semestre</label>
-        <input type="number" id= "Semestre" name="Semestre" required>
-        <br>
+        <label>Semestre</label>
+        <input class="input" type="number" id="Semestre" name="Semestre" required>
 
-        <label> Vigencia</label>
-        <input type="date" id= "Vigencia" name="Vigencia" required>
-        <br>
-        
-        <label> Linea_vigencia</label>
-        <input type="text" id= "Linea_vigencia" name="Linea_vigencia">
-        <br>
+        <label>Vigencia</label>
+        <input class="input" type="date" id="Vigencia" name="Vigencia" required>
 
-        <label> Tecnico_verificador</label>
-        <input type="text" id= "Tecnico_verificador" name="Tecnico_verificador" required>
-        <br>
+        <label>Linea Vigencia</label>
+        <input class="input" type="text" id="Linea_vigencia" name="Linea_vigencia">
 
-        <label> Numero_centro</label>
-        <input type="number" id= "Numero_centro" name="Numero_centro" required>
-        <br>
+        <label>Tecnico Verificador</label>
+        <input class="input" type="text" id="Tecnico_verificador" name="Tecnico_verificador" required>
 
-        <label> Id_pago</label>
-        <input type="number" id= "Id_pago" name="Id_pago" required>
-        <br>
+        <label>Numero Centro</label>
+        <input class="input" type="number" id="Numero_centro" name="Numero_centro" required>
 
-        <input type="submit">
+        <label>Id Pago</label>
+        <input class="input" type="number" id="Id_pago" name="Id_pago" required>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Insertar">
+        </div>
     </form>
-
+</body>
 </html>

@@ -7,8 +7,6 @@ $Con = Conectar();
 
 validarExistenciaID($Con, 'conductores','Numero_licencia', $_GET['Id'], 'Conductores');
 
-
-
     $Numero_licencia = $_GET['Id'];
     $sql = "SELECT * FROM conductores WHERE Numero_licencia='$Numero_licencia';";
     $ResultSet = Ejecutar($Con, $sql);
@@ -16,104 +14,101 @@ validarExistenciaID($Con, 'conductores','Numero_licencia', $_GET['Id'], 'Conduct
 
     Desconectar($Con);
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Actualizar Conductor</title>
-    <style type="text/css">
+    <link rel="stylesheet" href="../main.css?v=1">
+    <style>
         #canvas-firma {
-            border: 2px dashed #000;
-            background-color: #fff;
+            border: 2px dashed #d0d5dd;
+            background-color: #f9fafb;
             cursor: crosshair;
-            margin-top: 5px;
-        }
-        button[type="button"] {
-            margin-top: 5px;
-            padding: 3px 8px;
-            cursor: pointer;
+            margin-top: 4px;
+            border-radius: 8px;
+            width: 100%;
         }
         .vista-previa {
-            margin: 10px 0;
+            font-size: 14px;
+            color: #475467;
+            margin-bottom: 8px;
             display: block;
+        }
+        .vista-previa img {
+            display: block;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #d0d5dd;
+        }
+        small {
+            color: #667085;
+            font-size: 12px;
         }
     </style>
 </head>
-
 <body>
-    <label>Actualizar Conductores</label>
-    <br>
-
-    <form method="post" action="UConductores.php" enctype="multipart/form-data" id="formConductor">
+    <form method="post" action="UConductores.php" enctype="multipart/form-data" id="formConductor" class="insert-form">
+        <h2>Actualizar Conductor</h2>
 
         <input type="hidden" name="Licencia_Original" value="<?php echo $Fila[0]; ?>">
 
-        <label> Numero_licencia</label>
-        <input type="number" id="Numero_licencia" name="Numero_licencia" value="<?php echo $Fila[0]; ?>" required>
-        <br>
+        <label>Numero Licencia</label>
+        <input class="input" type="number" id="Numero_licencia" name="Numero_licencia" value="<?php echo $Fila[0]; ?>" required>
 
-        <label> Nombre</label>
-        <input type="text" id="Nombre" name="Nombre" value="<?php echo $Fila[1]; ?>" required>
-        <br>
+        <label>Nombre</label>
+        <input class="input" type="text" id="Nombre" name="Nombre" value="<?php echo $Fila[1]; ?>" required>
 
-        <label> Apellido_paterno</label>
-        <input type="text" id="Apellido_paterno" name="Apellido_paterno" value="<?php echo $Fila[2]; ?>" required>
-        <br>
+        <label>Apellido Paterno</label>
+        <input class="input" type="text" id="Apellido_paterno" name="Apellido_paterno" value="<?php echo $Fila[2]; ?>" required>
 
-        <label> Apellido_materno</label>
-        <input type="text" id="Apellido_materno" name="Apellido_materno" value="<?php echo $Fila[3]; ?>" required>
-        <br>
+        <label>Apellido Materno</label>
+        <input class="input" type="text" id="Apellido_materno" name="Apellido_materno" value="<?php echo $Fila[3]; ?>" required>
 
-        <label> Estado_procedencia</label>
-        <input type="text" id="Estado_procedencia" name="Estado_procedencia" value="<?php echo $Fila[4]; ?>" required>
-        <br>
+        <label>Estado Procedencia</label>
+        <input class="input" type="text" id="Estado_procedencia" name="Estado_procedencia" value="<?php echo $Fila[5]; ?>" required>
 
-        <label> Fecha_nacimiento</label>
-        <input type="text" id="Fecha_nacimiento" name="Fecha_nacimiento" value="<?php echo $Fila[5]; ?>" required>
-        <br>
+        <label>Fecha Nacimiento</label>
+        <input class="input" type="text" id="Fecha_nacimiento" name="Fecha_nacimiento" value="<?php echo $Fila[4]; ?>" required>
 
-        <label> Grupo_sanguineo</label>
-        <input type="text" id="Grupo_sanguineo" name="Grupo_sanguineo" value="<?php echo $Fila[6]; ?>" required>
-        <br>
+        <label>Grupo Sanguineo</label>
+        <input class="input" type="text" id="Grupo_sanguineo" name="Grupo_sanguineo" value="<?php echo $Fila[6]; ?>" required>
 
-        <label> Donador_organos</label>
-        <input type="text" id="Donador_organos" name="Donador_organos" value="<?php echo $Fila[7]; ?>" required>
-        <br>
+        <label>Donador Organos</label>
+        <input class="input" type="text" id="Donador_organos" name="Donador_organos" value="<?php echo $Fila[7]; ?>" required>
 
-        <label> Sexo</label>
-        <input type="text" id="Sexo" name="Sexo" value="<?php echo $Fila[8]; ?>" required>
-        <br>
+        <label>Sexo</label>
+        <input class="input" type="text" id="Sexo" name="Sexo" value="<?php echo $Fila[8]; ?>" required>
 
-        <label> Id_domicilio</label>
-        <input type="number" id="Id_domicilio" name="Id_domicilio" value="<?php echo $Fila[9]; ?>" required>
-        <br><br>
+        <label>Id Domicilio</label>
+        <input class="input" type="number" id="Id_domicilio" name="Id_domicilio" value="<?php echo $Fila[9]; ?>" required>
 
-        <label><strong>Fotografía del Conductor:</strong></label><br>
-        <span class="vista-previa">Foto actual: <br>
+        <label>Fotografia del Conductor</label>
+        <span class="vista-previa">Foto actual:
             <img src="../Public/<?php echo $Fila[10]; ?>" width="120" onerror="this.src='../Public/uploads/defecto.jpg'" alt="Vista previa foto">
         </span>
-        <input type="file" name="foto" accept="image/*">
-        <br>
-        <small style="color: #666;">(Selecciona un archivo solo si deseas cambiar la foto actual)</small>
-        <br><br>
+        <input class="input" type="file" name="foto" accept="image/*">
+        <small>(Selecciona un archivo solo si deseas cambiar la foto actual)</small>
 
-        <label><strong>Firma Digital:</strong></label><br>
-        <span class="vista-previa">Firma actual: <br>
-            <img src="../Public/<?php echo $Fila[11]; ?>" width="150" style="border:1px solid #ccc;" onerror="this.src='../Public/uploads/sin_firma.jpg'" alt="Vista previa firma">
+        <label>Firma Digital</label>
+        <span class="vista-previa">Firma actual:
+            <img src="../Public/<?php echo $Fila[11]; ?>" width="150" onerror="this.src='../Public/uploads/sin_firma.jpg'" alt="Vista previa firma">
         </span>
-        <canvas id="canvas-firma" width="400" height="150"></canvas><br>
-        <button type="button" id="btnLimpiar">Limpiar Lienzo</button>
+        <canvas id="canvas-firma" width="400" height="150"></canvas>
+        <button type="button" id="btnLimpiar" class="btn btn-primary" style="width:fit-content; margin-top: 4px;">Limpiar Lienzo</button>
         <input type="hidden" name="firma_base64" id="firma_base64">
-        <br>
-        <small style="color: #666;">(Dibuja aquí solo si deseas cambiar la firma actual)</small>
-        <br><br>
-    
-        <input type="submit" value="Actualizar Registro">
+        <small>(Dibuja aquí solo si deseas cambiar la firma actual)</small>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Actualizar">
+        </div>
     </form>
 
     <script>
         const canvas = document.getElementById('canvas-firma');
         const ctx = canvas.getContext('2d');
         let dibujando = false;
-        let seHizoTrazo = false; 
+        let seHizoTrazo = false;
 
         ctx.strokeStyle = '#000000';
         ctx.lineWidth = 3;
@@ -164,4 +159,3 @@ validarExistenciaID($Con, 'conductores','Numero_licencia', $_GET['Id'], 'Conduct
     </script>
 </body>
 </html>
-

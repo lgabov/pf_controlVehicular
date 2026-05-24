@@ -3,26 +3,29 @@ require_once "../Auth/auth.php";
 
 proteger(["admin"]);
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Domicilio</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="post" action="IDomicilios.php" class="insert-form">
+        <h2>Domicilios</h2>
 
-    <label>Domicilios</label>
-    <br>
-    <form method="post" action="IDomicilios.php" >
-        <label> Id</label>
-        <input type="number" id= "Id" name="Id" required>
-        <br>
+        <label>Id</label>
+        <input class="input" type="number" id="Id" name="Id" required>
 
-        <label> Localidad</label>
-        <input type="text" id= "Localidad" name="Localidad" required>
-        <br>
+        <label>Localidad</label>
+        <input class="input" type="text" id="Localidad" name="Localidad" required>
 
-        <label> Municipio</label>
-        <input type="text" id= "Municipio" name="Municipio" required>
-        <br>
+        <label>Municipio</label>
+        <input class="input" type="text" id="Municipio" name="Municipio" required>
 
-        <label> Entidad_federativa</label>
-        <select name="Entidad_federativa" id="Entidad_federativa" required>
-            <option value="no">Seleccione uno...</option>
+        <label>Entidad Federativa</label>
+        <select class="input" name="Entidad_federativa" id="Entidad_federativa" required>
+            <option value="">Seleccione uno...</option>
             <option value="Aguascalientes">Aguascalientes</option>
             <option value="Baja California">Baja California</option>
             <option value="Baja California Sur">Baja California Sur</option>
@@ -55,10 +58,11 @@ proteger(["admin"]);
             <option value="Veracruz">Veracruz</option>
             <option value="Yucatán">Yucatán</option>
             <option value="Zacatecas">Zacatecas</option>
-        </select>        
-        <br>
+        </select>
 
-        <input type="submit">
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Insertar">
+        </div>
     </form>
-
+</body>
 </html>

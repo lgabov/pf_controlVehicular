@@ -1,10 +1,6 @@
-
 <?php
     require_once "../Auth/auth.php";
     proteger(["admin"]);
-
-    include ('../Controlador.php');
-    validarExistenciaID($Con, 'conductores', 'Numero_licencia', $_GET['Numero_licencia'], 'Conductores');
 ?>
 
 <!DOCTYPE html>
@@ -12,43 +8,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Insertar Conductor</title>
-    <style type="text/css">
+    <link rel="stylesheet" href="../main.css?v=1">
+    <style>
         #canvas-firma {
-            border: 2px dashed #000;
-            background-color: #fff;
+            border: 2px dashed #d0d5dd;
+            background-color: #f9fafb;
             cursor: crosshair;
-            margin-top: 5px;
-        }
-        button[type="button"] {
-            margin-top: 5px;
-            padding: 3px 8px;
-            cursor: pointer;
+            margin-top: 4px;
+            border-radius: 8px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <label>Conductores</label>
-    <br>
+    <form method="post" action="IConductores.php" enctype="multipart/form-data" id="formConductor" class="insert-form">
+        <h2>Conductores</h2>
 
-    <form method="post" action="IConductores.php" enctype="multipart/form-data" id="formConductor">
-        <label> Numero_licencia</label>
-        <input type="number" id="Numero_licencia" name="Numero_licencia" required>
-        <br>
+        <label>Numero Licencia</label>
+        <input class="input" type="number" id="Numero_licencia" name="Numero_licencia" required>
 
-        <label> Nombre</label>
-        <input type="text" id="Nombre" name="Nombre" required>
-        <br>
+        <label>Nombre</label>
+        <input class="input" type="text" id="Nombre" name="Nombre" required>
 
-        <label> Apellido_paterno</label>
-        <input type="text" id="Apellido_paterno" name="Apellido_paterno" required>
-        <br>
+        <label>Apellido Paterno</label>
+        <input class="input" type="text" id="Apellido_paterno" name="Apellido_paterno" required>
 
-        <label> Apellido_materno</label>
-        <input type="text" id="Apellido_materno" name="Apellido_materno" required>
-        <br>
+        <label>Apellido Materno</label>
+        <input class="input" type="text" id="Apellido_materno" name="Apellido_materno" required>
 
-        <label> Estado_procedencia</label>
-        <select name="Estado_procedencia" id="Estado_procedencia" required>
+        <label>Estado Procedencia</label>
+        <select class="input" name="Estado_procedencia" id="Estado_procedencia" required>
             <option value="">Seleccione uno...</option>
             <option value="Aguascalientes">Aguascalientes</option>
             <option value="Baja California">Baja California</option>
@@ -83,51 +72,49 @@
             <option value="Yucatán">Yucatán</option>
             <option value="Zacatecas">Zacatecas</option>
         </select>
-        <br>
 
-        <label> Fecha_nacimiento</label>
-        <input type="date" id="Fecha_nacimiento" name="Fecha_nacimiento" required>
-        <br>
+        <label>Fecha Nacimiento</label>
+        <input class="input" type="date" id="Fecha_nacimiento" name="Fecha_nacimiento" required>
 
-        <label> Grupo_sanguineo</label>
-        <input type="radio" name="Grupo_sanguineo" value="A+" required> A+
-        <input type="radio" name="Grupo_sanguineo" value="A-" required> A-
-        <input type="radio" name="Grupo_sanguineo" value="B+" required> B+
-        <input type="radio" name="Grupo_sanguineo" value="B-" required> B-
-        <input type="radio" name="Grupo_sanguineo" value="AB+" required> AB+
-        <input type="radio" name="Grupo_sanguineo" value="AB-" required> AB-
-        <input type="radio" name="Grupo_sanguineo" value="O+" required> O+
-        <input type="radio" name="Grupo_sanguineo" value="O-" required> O-
-        <br>
+        <label>Grupo Sanguineo</label>
+        <div class="radio-group">
+            <span><input type="radio" name="Grupo_sanguineo" value="A+" required> A+</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="A-"> A-</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="B+"> B+</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="B-"> B-</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="AB+"> AB+</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="AB-"> AB-</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="O+"> O+</span>
+            <span><input type="radio" name="Grupo_sanguineo" value="O-"> O-</span>
+        </div>
 
-        <label> Donador_organos</label>
-        <select name="Donador_organos" id="Donador_organos" required>
+        <label>Donador Organos</label>
+        <select class="input" name="Donador_organos" id="Donador_organos" required>
             <option value="">Seleccione uno...</option>
             <option value="Si">Si</option>
             <option value="No">No</option>
         </select>
-        <br>
 
-        <label> Sexo</label>
-        <input type="radio" name="Sexo" value="1" required> Masculino
-        <input type="radio" name="Sexo" value="0" required> Femenino
-        <br>
+        <label>Sexo</label>
+        <div class="radio-group">
+            <span><input type="radio" name="Sexo" value="1" required> Masculino</span>
+            <span><input type="radio" name="Sexo" value="0"> Femenino</span>
+        </div>
 
-        <label> Id_domicilio</label>
-        <input type="number" id="Id_domicilio" name="Id_domicilio" required>
-        <br><br>
+        <label>Id Domicilio</label>
+        <input class="input" type="number" id="Id_domicilio" name="Id_domicilio" required>
 
-        <label><strong>Fotografía del Conductor:</strong></label><br>
-        <input type="file" name="foto" accept="image/*" required>
-        <br><br>
+        <label>Fotografía del Conductor</label>
+        <input class="input" type="file" name="foto" accept="image/*" required>
 
-        <label><strong>Firma Digital:</strong></label><br>
-        <canvas id="canvas-firma" width="400" height="150"></canvas><br>
-        <button type="button" id="btnLimpiar">Limpiar Firma</button>
+        <label>Firma Digital</label>
+        <canvas id="canvas-firma" width="400" height="150"></canvas>
+        <button type="button" id="btnLimpiar" class="btn btn-primary" style="width:fit-content; margin-top: 4px;">Limpiar Firma</button>
         <input type="hidden" name="firma_base64" id="firma_base64">
-        <br><br>
-    
-        <input type="submit" value="Enviar Registro">
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Insertar">
+        </div>
     </form>
 
     <script>
@@ -135,8 +122,8 @@
         const ctx = canvas.getContext('2d');
         let dibujando = false;
 
-        ctx.strokeStyle = '#000000'; 
-        ctx.lineWidth = 3;   
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 3;
 
         function iniciarDibujo(e) {
             dibujando = true;

@@ -13,31 +13,33 @@ validarExistenciaID($Con, 'oficiales','Id', $_GET['Id'], 'Oficiales');
     $Fila = mysqli_fetch_row($ResultSet);
 
     Desconectar($Con);
-
-    
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Oficial</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="get" action="UOficiales.php" class="insert-form">
+        <h2>Actualizar Oficial</h2>
 
-<html>
-    <label>Actualizar Oficiales</label>
-    <br>
-    <form method="get" action="UOficiales.php">
-        <label> Id</label>
-        <input type="number" id= "Id" name="Id" value="<?php echo $Fila[0]; ?>" required>
-        <br>
-        
-        <label> Nombre</label>
-        <input type="text" id= "Nombre" name="Nombre" value="<?php echo $Fila[1]; ?>" required>
-        <br>
+        <label>Id</label>
+        <input class="input" type="number" id="Id" name="Id" value="<?php echo $Fila[0]; ?>" required>
 
-        <label> Apellidos</label>
-        <input type="text" id= "Apellidos" name="Apellidos" value="<?php echo $Fila[2]; ?>" required>
-        <br>
+        <label>Nombre</label>
+        <input class="input" type="text" id="Nombre" name="Nombre" value="<?php echo $Fila[1]; ?>" required>
 
-        <label> Grupo</label>
-        <input type="text" id= "Grupo" name="Grupo" value="<?php echo $Fila[3]; ?>" required>
-        <br>
+        <label>Apellidos</label>
+        <input class="input" type="text" id="Apellidos" name="Apellidos" value="<?php echo $Fila[2]; ?>" required>
 
-        <input type="submit">
+        <label>Grupo</label>
+        <input class="input" type="text" id="Grupo" name="Grupo" value="<?php echo $Fila[3]; ?>" required>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Actualizar">
+        </div>
     </form>
-
+</body>
 </html>

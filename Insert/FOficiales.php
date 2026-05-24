@@ -3,27 +3,32 @@ require_once "../Auth/auth.php";
 
 proteger(["admin"]);
 ?>
-<html>
-    <label>Oficiales</label>
-    <br>
-    <form method="post" action="IOficiales.php">
-        <label> Id</label>
-        <input type="number" id= "Id" name="Id" required>
-        <br>
-        
-        <label> Nombre</label>
-        <input type="text" id= "Nombre" name="Nombre" required>
-        <br>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Oficial</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="post" action="IOficiales.php" class="insert-form">
+        <h2>Oficiales</h2>
 
-        <label> Apellidos</label>
-        <input type="text" id= "Apellidos" name="Apellidos" required>
-        <br>
+        <label>Id</label>
+        <input class="input" type="number" id="Id" name="Id" required>
 
-        <label> Grupo</label>
-        <input type="text" id= "Grupo" name="Grupo" required>
-        <br>
+        <label>Nombre</label>
+        <input class="input" type="text" id="Nombre" name="Nombre" required>
 
-        <input type="submit">
+        <label>Apellidos</label>
+        <input class="input" type="text" id="Apellidos" name="Apellidos" required>
+
+        <label>Grupo</label>
+        <input class="input" type="text" id="Grupo" name="Grupo" required>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-primary" value="Insertar">
+        </div>
     </form>
-
+</body>
 </html>
