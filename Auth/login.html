@@ -1,24 +1,29 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Control de Acceso</title>
-        <link rel="stylesheet" href="../main.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Acceso</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
 
-    <body>
+<body>
 
-        <form class="login-form" action="valida_acceso.php" method="post">
+    <form class="login-form" action="valida_acceso.php" method="post" enctype="multipart/form-data">
 
-            <label>Usuario</label>
-            <input type="text" id="Usuario" name="Usuario" class="form-control"/>
-            <br>
-            <label>Password:</label>
-            <input type="password" id="Pwd" name="Pwd" class="form-control"/>
-            <br>
-      
-            <input type="submit" value="Ingresar" class="btn btn-primary"/>
-        </form>
+        <label for="Usuario">Usuario</label>
+        <input type="text" id="Usuario" name="Usuario" class="form-control" required />
+        <br>
 
-    </body>
+        <label for="Pwd">Password:</label>
+        <input type="password" id="Pwd" name="Pwd" class="form-control" required />
+        <br>
+
+        <label for="archivo">Selecciona un archivo:</label>
+        <input type="file" name="archivo_txt" id="archivo" accept=".txt" required>
+        <br><br>
+
+        <input type="submit" value="Ingresar y Procesar" class="btn btn-primary"/>
+    </form>
+
+</body>
 </html>

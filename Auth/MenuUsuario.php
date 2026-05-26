@@ -1,12 +1,12 @@
 <?php
-session_start();
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
-    header("Location: login.html"); 
-    exit(); 
-}
+
+include_once("../Auth/seguridad.php"); 
+
+proteger(['user']); 
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Menu Usuarios</title>
@@ -17,9 +17,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
     <header>
         <h1>Menu de Usuario</h1>
         <div class="nav">
-        <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
+            <ul>
+                <li><a href="../Auth/logout.php">Cerrar sesión</a></li>
+            </ul>
         </div>
     </header>
+    
     <div class="nav-actions">
         <ul class="nav">
             <li><a href="">Centros de Verificación</a>

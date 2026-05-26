@@ -2,65 +2,94 @@
 session_start();
 include("../Controlador.php");
 
-    $Con = Conectar();
-    $Usuario = $_POST["Usuario"];
-    $Pwd = $_POST["Pwd"];
+$Con = Conectar();
+
+$Usuario = mysqli_real_escape_string($Con, $_POST["Usuario"]);
+$Pwd = $_POST["Pwd"];
+
+$sql = "SELECT * FROM Cuentas WHERE Usuario = '$Usuario'";
+$ResultSet = Ejecutar($Con, $sql);
+$NumFilas = mysqli_num_rows($ResultSet);
+
+if($NumFilas == 0) { 
+    print("El usuario no existe");
+} else {
+    $Fila = mysqli_fetch_assoc($ResultSet);
     
-    $sql = "SELECT * FROM Cuentas WHERE Usuario = '$Usuario'";
-    $ResultSet = Ejecutar($Con, $sql);
-    $NumFilas = mysqli_num_rows($ResultSet);
-    
-    if($NumFilas == 0) { 
-        print("El usuario no existe");
-        } else {
-            $Fila = mysqli_fetch_assoc($ResultSet);
-            if($Fila['Pwd'] == $Pwd) {
-                if($Fila['Intentos'] != 0) {
-                    $sql = "UPDATE Cuentas SET Intentos = '0' WHERE Usuario = '$Usuario';  ";
-                    $ResultSet = Ejecutar($Con, $sql);
-                }
-                if($Fila['Bloqueo'] == 0) {
-                    if($Fila['Estado'] == 1) {
-                        $_SESSION['usuario'] = $Usuario;
-                         if($Fila['Tipo'] == 'A') {
+    if($Fila['Pwd'] == $Pwd) {
+        if($Fila['Bloqueo'] == 0) {
+            if($Fila['Estado'] == 1) {
 
-                          $_SESSION['role'] = 'admin';
+                if (isset($_FILES["archivo_txt"]) && $_FILES["archivo_txt"]["error"] == 0) {
 
-                           } elseif($Fila['Tipo'] == 'U') {
+                    $tipo_archivo = strtolower(pathinfo($_FILES["archivo_txt"]["name"], PATHINFO_EXTENSION));
 
-                          $_SESSION['role'] = 'user';
+                    if ($tipo_archivo === "txt") {
 
-                           } else {
+                        $contenidoSubido = trim(file_get_contents($_FILES["archivo_txt"]["tmp_name"]));
 
-                                die("Tipo de usuario inválido");
-                                 }
-                
-                         Desconectar($Con);
-                        ////////////////////PERMITIR ACCESO
-                        if($Fila['Tipo'] == 'A') {
-                            header("Location: MenuAdmin.php");
-                        } else {
-                            header("Location: MenuUsuario.php");
+                        $llaveMaestra = trim($Fila['key']); 
+
+                        if ($contenidoSubido !== $llaveMaestra) {
+                            die("Error: La llave dentro del archivo no coincide con el registro.");
                         }
+
+                        $_SESSION['contenido_txt'] = $contenidoSubido;
+
                     } else {
-                        print("Cuenta No Activa");
+                        die("Error: Solo se permiten archivos con extensión .txt");
                     }
                 } else {
-                    print("Su cuenta está bloqueada");
+                    die("Error al subir el archivo o archivo no seleccionado.");
                 }
-            } else {
-                print("Contraseña incorrecta");
-                $sql = "UPDATE Cuentas SET Intentos = (Intentos +1) WHERE Usuario = '$Usuario';";
-                $ResultSet = Ejecutar($Con, $sql);
 
-                if($Fila['Intentos'] >= 3){
-                    print("Máximo de intentos alcansados: Cuenta Bloqueada");
-                    $sql = "UPDATE Cuentas SET Bloqueo = '1', Intentos = '0'  WHERE Usuario = '$Usuario'; ";
-                    $ResultSet = Ejecutar($Con, $sql);
+                if($Fila['Intentos'] != 0) {
+                    $sql = "UPDATE Cuentas SET Intentos = '0' WHERE Usuario = '$Usuario';";
+                    Ejecutar($Con, $sql);
                 }
+
+                $_SESSION['usuario'] = $Usuario;
+                
+                // Asignación de rol
+                if($Fila['Tipo'] == 'A') {
+                    $_SESSION['role'] = 'admin';
+                } elseif($Fila['Tipo'] == 'U') {
+                    $_SESSION['role'] = 'user';
+                } else {
+                    die("Tipo de usuario inválido");
+                }
+                
+                Desconectar($Con);
+
+                if($Fila['Tipo'] == 'A') {
+                    header("Location: MenuAdmin.php");
+                } else {
+                    header("Location: MenuUsuario.php");
+                }
+                exit(); 
+                
+            } else {
+                print("Cuenta No Activa");
             }
+        } else {
+            print("Su cuenta está bloqueada");
+        }
+    } else {
+        print("Contraseña incorrecta. ");
+
+        $sql = "UPDATE Cuentas SET Intentos = (Intentos + 1) WHERE Usuario = '$Usuario';";
+        Ejecutar($Con, $sql);
+
+        if(($Fila['Intentos'] + 1) >= 3){
+            print("Máximo de intentos alcanzados: Cuenta Bloqueada");
+            $sql = "UPDATE Cuentas SET Bloqueo = '1', Intentos = '0' WHERE Usuario = '$Usuario';";
+            Ejecutar($Con, $sql);
+        }
     }
-        
-   Desconectar($Con);
+}
+    
+Desconectar($Con);
 ?>
+
+
 
