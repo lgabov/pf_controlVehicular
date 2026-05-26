@@ -8,7 +8,6 @@ function proteger($rolesPermitidos = [])
         !isset($_SESSION['usuario']) ||
         !isset($_SESSION['role'])
     ) {
-
         header("Location: ../Auth/login.html");
         exit();
     }

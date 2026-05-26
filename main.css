@@ -3,11 +3,11 @@
    ========================================================================== */
 :root {
   /* Paleta de colores */
-  --primary-color: #cd8e2e;
-  --primary-hover: #0051a8;
-  --secondary_color: #c1d12e;
-  --tertiary-color: #579a2b;
-  --tertiary-hover: #4c8626;
+  --primary-color: #0a2540;
+  --primary-hover: #0d3054;
+  --secondary_color: #3355c3;
+  --tertiary-color: #408ce9;
+  --tertiary-hover: #2c73ca;
   --background-color: #ffffff;
   --text-color: #333333;
   --text-muted: #666666;
@@ -31,6 +31,7 @@
 body {
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center; 
     align-items: center;     
     min-height: 100vh;       
@@ -41,6 +42,7 @@ body {
    ESTILOS BASE para Elementos HTML
    ========================================================================== */
 header {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;  
     width: 100%;
     height: 10vh;
     position: fixed;
@@ -62,12 +64,14 @@ header .nav li {
 
 header .nav li a {
   min-height: 20px;
+  color: white;
 
 }
 
 header h1 {
   margin: 0;          
   white-space: nowrap; 
+  color: white ;
 }
 
    h1, h2, h3, h4, h5, h6 {
@@ -77,6 +81,7 @@ header h1 {
 }
 
 a {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   color: var(--primary-color);
   text-decoration: none;
   transition: var(--transition);
@@ -107,6 +112,19 @@ form label{
 
 ul, ol {
   list-style: none;
+}
+
+#Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+#Logo img {
+  width: 300px;
+  opacity: 0.15;
+  filter: blur(1px) grayscale(30%);
 }
 
 /* ==========================================================================
@@ -184,6 +202,7 @@ ul, ol {
   padding: 0.5rem;
   margin: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin-bottom: 150px;
 }
 
 .nav {
@@ -329,7 +348,7 @@ ul, ol {
   accent-color: #2563eb;
   width: 18px;
   height: 18px;
-  margin: 0 4px 0 12px; /* Margen a la izquierda para separarlos entre sí */
+  margin: 0 4px 0 12px; 
   vertical-align: middle;
   cursor: pointer;
 }
@@ -340,7 +359,7 @@ ul, ol {
   font-size: 15px;
   color: #475467;
   vertical-align: middle;
-  white-space: nowrap; /* Evita que el texto salte de línea individualmente */
+  white-space: nowrap; 
 }
 
 .select-form input[type="radio"]:first-of-type {
