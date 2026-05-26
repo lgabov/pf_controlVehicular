@@ -137,5 +137,8 @@ inicializarDetectorErrores();
             </li>
         </ul>
     </div>
+    <div id="Logo">
+        <img src="../public/logo.png" alt="Logo del sistema de control vehicular">
+    </div>
 </body>
 </html>

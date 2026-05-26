@@ -2,11 +2,23 @@
 require_once "../Auth/auth.php";
 proteger(["admin"]);
 ?>
-<html>
-    <form method="post" action="DMultas.php">
-        <label>Folio </label>
-        <input type="text" name="Folio" id="Folio">
-        <input type="submit">
-        
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Multa</title>
+    <link rel="stylesheet" href="../main.css?v=1">
+</head>
+<body>
+    <form method="post" action="DMultas.php" class="insert-form">
+        <h2>Eliminar Multa</h2>
+
+        <label>Folio</label>
+        <input class="input" type="text" name="Folio" id="Folio" required>
+
+        <div class="form-footer">
+            <input type="submit" class="btn btn-danger" value="Eliminar">
+        </div>
     </form>
+</body>
 </html>
