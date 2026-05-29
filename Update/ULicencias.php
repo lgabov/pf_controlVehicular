@@ -18,7 +18,9 @@ $Con = Conectar();
 try {
     $ResultSet = Ejecutar($Con, $sql);
     if (mysqli_affected_rows($Con) > 0) {
-        print("Registro actualizado con éxito.");
+        echo "Registro actualizado con éxito. Redirigiendo...";
+        echo '<meta http-equiv="refresh" content="3;url=../Auth/MenuAdmin.php">';
+        exit();
     } else {
         print("Registro procesado (sin cambios realizados o ID no encontrado).");
     }

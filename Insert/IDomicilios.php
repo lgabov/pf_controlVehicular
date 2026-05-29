@@ -26,7 +26,9 @@ proteger(["admin"]);
     VALUES ('$Id', '$Localidad', '$Municipio', '$Entidad_federativa');";
     try {
         $ResultSet = Ejecutar($Con, $sql);
-        print("Registro insertado correctamente.");
+        echo "Registro insertado correctamente. Redirigiendo...";
+        echo '<meta http-equiv="refresh" content="3;url=../Auth/MenuAdmin.php">';
+    exit();
 
     } catch (mysqli_sql_exception $e) {
         

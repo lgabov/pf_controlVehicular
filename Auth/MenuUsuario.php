@@ -1,6 +1,6 @@
 <?php
 
-include_once("../Auth/seguridad.php"); 
+require_once "../Auth/auth.php"; 
 
 proteger(['user']); 
 ?>

@@ -49,7 +49,9 @@ ini_set('display_errors', 1);
     $Con = Conectar();
     try {
         $ResultSet = Ejecutar($Con, $sql);
-        print("Registro insertado correctamente.");
+        echo "Registro insertado correctamente. Redirigiendo...";
+    echo '<meta http-equiv="refresh" content="3;url=../Auth/MenuAdmin.php">';
+    exit();
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() == 1062) {
             print("Error: El ID asignado ya se encuentra registrado en el sistema.");

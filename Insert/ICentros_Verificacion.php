@@ -22,11 +22,13 @@ proteger(["admin"]);
     include("../Controlador.php");
     $Con = Conectar();
     try {
-        //Instruccion sql
         $sql = "INSERT INTO Centros_Verificacion (Numero_centro, Hora_entrada, Hora_salida)
-        VALUES ('$Numero_centro', '$Hora_entrada', '$Hora_salida');";
-        $ResultSet = Ejecutar($Con, $sql);
-        print("Registro insertado correctamente.");
+    VALUES ('$Numero_centro', '$Hora_entrada', '$Hora_salida');";
+    $ResultSet = Ejecutar($Con, $sql);
+  
+    echo "Registro insertado correctamente. Redirigiendo...";
+    echo '<meta http-equiv="refresh" content="3;url=../Auth/MenuAdmin.php">';
+    exit();
 
     }
     catch (mysqli_sql_exception $e) {

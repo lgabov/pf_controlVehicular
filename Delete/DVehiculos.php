@@ -12,7 +12,11 @@ try {
     $ResultSet = Ejecutar($Con, $sql);
 
     if (mysqli_affected_rows($Con) > 0) {
-        print("Registro eliminado con éxito.");
+        echo "<script>
+            alert('Registro eliminado con éxito.');
+            window.location.href = '../Auth/MenuAdmin.php';
+          </script>";
+    exit();
     } else {
         print("Aviso: No se encontró ningún registro con ese ID para eliminar.");
     }

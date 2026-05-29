@@ -6,12 +6,12 @@ proteger(["admin"]);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar Domicilio</title>
+    <title>Eliminar Licencia</title>
     <link rel="stylesheet" href="../main.css?v=1">
 </head>
 <body>
-    <form method="post" action="DDomicilios.php" class="insert-form">
-        <h2>Eliminar Domicilio</h2>
+    <form method="post" action="DLicencias.php" class="insert-form">
+        <h2>Eliminar Licencia</h2>
 
         <label>Id</label>
         <input class="input" type="text" name="Id" id="Id" required>
